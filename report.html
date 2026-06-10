@@ -1,11 +1,1754 @@
-<!doctype html>
-<html lang="pt-PT">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-  <meta charset="utf-8">
-  <title>Relatório ainda não disponível!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório Associação para a Inclusão do Cidadão com Necessidades Especiais</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .skip-link { position: absolute; top: -40px; left: 0; background: #000; color: white; padding: 8px; z-index: 100; transition: top 0.3s ease; }
+    .skip-link:focus { top: 0; }
+    .visually-hidden-focusable:not(:focus):not(:focus-within) { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
+    body { 
+      background-color: #ffffff; 
+      padding-top: 2rem; 
+      padding-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container { 
+      max-width: 900px;
+      width: 100%;
+      background-color: transparent; 
+      padding-top: 1rem;
+      padding-bottom: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .report-footer {
+      width: 100%;
+      align-self: stretch;
+      background-color: #ffffff;
+      color: #4a5568;
+      text-align: center;
+      padding: 1.25rem 1rem;
+      font-size: 0.8rem;
+      border-top: 1px solid #e0e0e0;
+      margin-top: auto;
+    }
+    .report-footer p { margin: 0.2rem 0; }
+    h1 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .status-ok { color: #ffffff; background-color: #0E8A16; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .status-nok { color: #ffffff; background-color: #B60205; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .status-melhoria { color: #856404; background-color: #fff3cd; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .status-na { color: #000; background-color: #C2E0C6; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .requirement-title { margin-top: 2rem; }
+    .requirement-title h4, .requirement-title h3 { color: #000; }
+    .mb-4 ul li a { color: #1e3a8a; text-decoration: none; }
+    .mb-4 ul li a:hover { color: #1e40af; text-decoration: underline; }
+    summary.index-summary { display: list-item; font-weight: 700; font-size: 1.25rem !important; color: #000; cursor: pointer; }
+    summary.index-summary:focus { outline: 3px solid #333399; outline-offset: 2px; }
+    .evidence-list { list-style-type: disc; padding-left: 1.5rem; margin: 1rem 0; }
+    .evidence-item { margin: 0.5rem 0; padding: 0.5rem 0.5rem 0.5rem 1.5rem; border-radius: 4px; background-color: #f6f6f6; color: #000; list-style: none; margin-left: -1.5rem; }
+    .evidence-item p { margin: 1.5rem 0 1rem 0; }
+    .evidence-labels { font-size: 0.85em; display: inline-flex; flex-wrap: wrap; gap: 0.25rem; }
+    .label-tag { padding: 0.125rem 0.375rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500; color: white; display: inline-block; margin-right: 0.25rem; }
+    .label-checklist { background-color: #5319E7; }
+    .label-auto { background-color: #5319E7; }
+    .label-declaracao { background-color: #5319E7; }
+    .label-outras { background-color: #5319E7; }
+    .label-melhoria { background-color: #FBCA04; color: #000; }
+    .label-na { background-color: #C2E0C6; color: #000; }
+    .label-ok { background-color: #0E8A16; }
+    .label-nok { background-color: #B60205; }
+    .label-requisito { background-color: #0052CC; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .report-section { border-bottom: 3px solid #000000; padding-bottom: 2rem; margin-bottom: 2rem; }
+    .report-section:last-of-type { border-bottom: none; }
+    .checklist-section { border-bottom: 3px solid #000000; padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+    .avaliacao-manual-section { padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+    .checklist-section:last-of-type { border-bottom: none; }
+    .issue-link { color: #1e3a8a; text-decoration: none; }
+    .issue-link:hover { text-decoration: underline; color: #1e40af; }
+    table.table caption { caption-side: top; text-align: left; padding-bottom: 0.5rem; font-weight: 600; color: #000; }
+  </style>
 </head>
 <body>
-  <h1>Opps! O relatório ainda não está disponível!</h1>
-  <p>Peça à equipa da <abbr title="Agência para a Reforma Tecnológica do Estado">ARTE</abbr> para adicionar o relatório.</p>
+  <a href="#conteudo-principal" class="skip-link visually-hidden-focusable">Saltar para o conteúdo principal</a>
+  <div class="container mt-4" id="conteudo-principal">
+    <header class="mb-4">
+        <h1>Relatório Avaliação de Candidatura<br><em style="font-size:70%">Associação para a Inclusão do Cidadão com Necessidades Especiais</em></h1>
+    </header>
+
+    <section class="mb-4">
+      <ul>
+        <li>Avaliação feita por: ARTE. I.P. - Núcleo de Experiência e Usabilidade</li>
+        <li>Data de criação: 10/06/2026</li>
+        <li>Última atualização: 10/06/2026</li>
+        <li>URL: <a href="https://associacaoincluir.pt/" target="_blank" rel="noopener noreferrer">https://associacaoincluir.pt/</a></li>
+        <li>Propriedade: Associação INCLUIR</li>
+        <li>Candidatura: Ouro</li>
+        <li>Progresso (% de requisitos auditados): 100%</li>
+      </ul>
+    </section>
+
+    <nav class="mb-4 report-section" aria-label="Índice">
+      <details open>
+        <summary class="index-summary">Índice</summary>
+        <ul>
+          <li><a href="#introducao">Introdução</a></li>
+          
+          <li><a href="#avaliacao-automatica">Avaliação automática</a></li>
+          
+          <li><a href="#avaliacao-manual">Avaliação manual</a>
+            <ul class="indent-list">
+              
+              <li><a href="#checklist-10-aspetos">Checklist 10 aspetos</a>
+                <ul class="indent-list">
+                  <li><a href="#req-chk10-r-1.2">Requisito 1.2 - É possível selecionar as opções e as subopções do menu quer com rato quer com teclado</a></li><li><a href="#req-chk10-r-1.3">Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</a></li><li><a href="#req-chk10-r-2.1">Requisito 2.1 - Existe um título h1 marcado na página</a></li><li><a href="#req-chk10-r-2.2">Requisito 2.2 - Existe uma marcação hierarquizada de títulos e subtítulos na página (h1...h6)</a></li><li><a href="#req-chk10-r-3.2">Requisito 3.2 - A legenda da tabela está marcada com o elemento caption</a></li><li><a href="#req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</a></li><li><a href="#req-chk10-r-4.2">Requisito 4.2 - É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã</a></li><li><a href="#req-chk10-r-4.3">Requisito 4.3 - É possível localizar e ler as mensagens de erro usando apenas um leitor de ecrã</a></li><li><a href="#req-chk10-r-5.2">Requisito 5.2 - O gráfico é acompanhado de uma descrição longa</a></li><li><a href="#req-chk10-r-6.1">Requisito 6.1 - No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1</a></li><li><a href="#req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</a></li><li><a href="#req-chk10-r-8.3">Requisito 8.3 - Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</a></li>
+                </ul>
+              </li>
+              
+              <li><a href="#checklist-conteudo">Checklist Conteúdo</a>
+                <ul class="indent-list">
+                  <li><a href="#req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</a></li><li><a href="#req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</a></li><li><a href="#req-conteudo-r-1.3">Requisito 1.3 - Cada bloco de conteúdo contém a sua data de atualização</a></li><li><a href="#req-conteudo-r-1.4">Requisito 1.4 - A informação sobre a entidade responsável pelo conteúdo está em todas as páginas</a></li><li><a href="#req-conteudo-r-2.1">Requisito 2.1 - O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos</a></li><li><a href="#req-conteudo-r-2.3">Requisito 2.3 - Blocos e linhas de texto com largura não superior a 100 caracteres</a></li><li><a href="#req-conteudo-r-2.4">Requisito 2.4 - O espaçamento entre linhas não é inferior a 1.5x o tamanho da letra</a></li><li><a href="#req-conteudo-r-3.3">Requisito 3.3 - As hiperligações de texto não devem ser diferenciadas apenas com base na cor</a></li><li><a href="#req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</a></li><li><a href="#req-conteudo-r-4.2">Requisito 4.2 - O layout do sítio Web é adaptável a plataformas móveis sem necessidade de efetuar varrimento horizontal</a></li><li><a href="#req-conteudo-r-5.2">Requisito 5.2 - Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos) (vertical e horizontal)</a></li><li><a href="#req-conteudo-r-5.3">Requisito 5.3 - Há apenas um botão de ação principal por página e o mesmo encontra-se destacado</a></li><li><a href="#req-conteudo-r-5.4">Requisito 5.4 - Elementos gráficos interativos têm de aparentar ser clicáveis</a></li>
+                </ul>
+              </li>
+              
+              <li><a href="#checklist-transacao">Checklist Transação</a>
+                <ul class="indent-list">
+                  <li><a href="#req-transacao-r-1.2">Requisito 1.2 - Os formulários com mais de 2 ecrãs de altura devem ser distribuídos por várias páginas</a></li><li><a href="#req-transacao-r-1.3">Requisito 1.3 - Os formulários com mais de uma página têm a sequência de passos ilustrada</a></li><li><a href="#req-transacao-r-2.1">Requisito 2.1 - O tamanho dos campos deve refletir o tamanho previsível dos dados</a></li><li><a href="#req-transacao-r-2.2">Requisito 2.2 - É usada revelação progressiva em vez de campos inativos</a></li><li><a href="#req-transacao-r-2.3">Requisito 2.3 - As legendas dos campos são breves e claras</a></li><li><a href="#req-transacao-r-2.4">Requisito 2.4 - Campos obrigatórios devem ser claramente indicados como tal</a></li><li><a href="#req-transacao-r-3.1">Requisito 3.1 - Em ações longas, o sistema deve indicar o que está a acontecer</a></li><li><a href="#req-transacao-r-3.2">Requisito 3.2 - Deve ser confirmado o sucesso da transação/envio de informação</a></li><li><a href="#req-transacao-r-4.2">Requisito 4.2 - As ações destrutivas nunca devem ser permanentes; deve ser sempre possível desfazer a operação</a></li><li><a href="#req-transacao-r-4.3">Requisito 4.3 - As mensagens de erro são claramente identificadas junto aos campos de origem</a></li><li><a href="#req-transacao-r-4.4">Requisito 4.4 - As mensagens de erro devem mostrar os passos concretos para a resolução dos mesmos</a></li>
+                </ul>
+              </li>
+              <li><a href="#outras-violacoes">Outras violações</a></li>
+            </ul>
+          </li>
+          
+          <li><a href="#etiquetas">Significado das etiquetas utilizadas</a></li>
+        </ul>
+      </details>
+    </nav>
+
+    <section id="introducao" class="mb-5 report-section">
+      <h2>Introdução</h2>
+      <p>O website <a href="https://associacaoincluir.pt/" target="_blank">https://associacaoincluir.pt/</a> <strong><span class="status-nok"><span class="sr-only">etiqueta: </span>não passa</span></strong> nos requisitos mínimos do Selo de Usabilidade e Acessibilidade.</p>
+
+      <table class="table table-bordered">
+        <caption>Estado das avaliações efetuadas</caption>
+        <thead><tr><th>Tipo de avaliação</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Avaliação Automática</td><td><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></td></tr>
+          <tr><td>Avaliação Manual</td><td><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></td></tr>
+        </tbody>
+      </table>
+      <p>Das avaliações manuais efetuadas obtiveram-se os resultados que se sintetizam na tabela seguinte.</p>
+      <table class="table table-bordered">
+        <caption>Níveis de conformidade das avaliações manuais</caption>
+        <thead><tr><th>Checklist</th><th>Conformidade alcançada</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>10 aspetos</td><td>61.5% (16/26)</td><td><span class="status-nok"><span class="sr-only">etiqueta: </span>Não passa</span></td></tr>
+          <tr><td>Conteúdo</td><td>23.5% (4/17)</td><td><span class="status-nok"><span class="sr-only">etiqueta: </span>Não passa</span></td></tr>
+          <tr><td>Transação</td><td>50.0% (4/8)</td><td><span class="status-nok"><span class="sr-only">etiqueta: </span>Não passa</span></td></tr>
+        </tbody>
+      </table>
+      <p><strong>Nota:</strong> para passar os requisitos do Selo é necessário alcançar um nível de conformidade superior ou igual a 75% em cada uma das 3 checklists.</p></section>
+
+    <section id="avaliacao-automatica" class="mb-5 report-section">
+      <h2>Avaliação automática</h2>
+      <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+      <p>Para a produção das evidências do presente capítulo, foram utilizadas ferramentas automatizadas de avaliação de requisitos de acessibilidade de acordo com a norma WCAG 2.1 'AA'. A amostra em análise pelas ferramentas é composta pela Homepage mais todas as páginas diretamente hiperligadas por ela, pertencentes ao domínio.</p>
+      
+      <p>Lista de evidências recolhidas:</p>
+      <ul class="evidence-list">
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/2" class="issue-link" target="_blank" rel="noopener noreferrer">issue #2</a> <strong>Avaliação Automática - Accessmonitor / Observatório (em avaliação)</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
+              <div class="issue-content"><p>Analisámos a amostra com o Accessmonitor, de acordo com o método Home+, tendo sido avaliadas, no total, <strong>13 páginas</strong>.</p>
+<p>Destas páginas, <strong>todas as páginas têm pontuação abaixo de 9:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/politica-de-cookies/">https://associacaoincluir.pt/politica-de-cookies/</a> | 8.0</li>
+<li><a href="https://associacaoincluir.pt/acessibilidade/">https://associacaoincluir.pt/acessibilidade/</a> | 8.3</li>
+<li><a href="https://associacaoincluir.pt/contactos/">https://associacaoincluir.pt/contactos/</a> | 8.3</li>
+<li><a href="https://associacaoincluir.pt/politica-de-privacidade/">https://associacaoincluir.pt/politica-de-privacidade/</a> | 8.4</li>
+<li><a href="https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/">https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/</a> | 8.8</li>
+<li><a href="https://associacaoincluir.pt/termos-e-condicoes/">https://associacaoincluir.pt/termos-e-condicoes/</a> | 8.8</li>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a> | 8.8</li>
+<li><a href="https://associacaoincluir.pt/sobre-nos/">https://associacaoincluir.pt/sobre-nos/</a> | 8.8</li>
+<li><a href="https://associacaoincluir.pt/objetivos/">https://associacaoincluir.pt/objetivos/</a> | 8.8</li>
+<li><a href="https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/">https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/</a> | 8.8</li>
+<li><a href="https://associacaoincluir.pt/documentos/">https://associacaoincluir.pt/documentos/</a> | 8.8</li>
+<li><a href="https://associacaoincluir.pt/minuto-solidario-montepio-2015/">https://associacaoincluir.pt/minuto-solidario-montepio-2015/</a> | 8.9</li>
+<li><a href="https://associacaoincluir.pt/sou-consigo-e-faco/">https://associacaoincluir.pt/sou-consigo-e-faco/</a> | 8.9</li>
+</ul>
+<p>Para mais informação sobre os erros de acessibilidade que existem nessas páginas podem consultar o ficheiro .csv:<br><a href="https://github.com/user-attachments/files/28344007/28052026_incluir.csv">28052026_incluir.csv</a></p>
+<p>A correção desses erros fará aumentar a pontuação.</p>
+<p>Nota: A atualização ainda não foi efetuada no ambiente de produção nem no Observatório, pelo que estes valores ainda não se encontram públicos.</p>
+<img src="https://github.com/user-attachments/assets/35628b2b-5a41-40df-bc8e-fdc1831033c4" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+</div>
+            </li>
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/1" class="issue-link" target="_blank" rel="noopener noreferrer">issue #1</a> <strong>Existem erros de acessibilidade</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span></div>
+              <div class="issue-content"><h3>Aviso para rever: O Web Developer apresenta aproximadamente 26 páginas ligadas à inicial</h3>
+<p>Efetuámos também uma análise com o validador Rocket Validator que indica a existência de 10 erros de Acessibilidade e que precisam ser corrigidos:</p>
+<img src="https://github.com/user-attachments/assets/e4304db4-70c8-43fe-87a8-79810de87599" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Análise automática feita pelo Rocket Validator indica 10 erros de acessibilidade em uma amostra de 2 páginas</em></p>
+<p>Para mais informações partilhamos o <a href="https://rocketvalidator.com/s/bb51d189-b67b-40f9-933e-182df63d99f2">relatório da análise automática feita pelo Rocket Validator</a>.</p>
+</div>
+            </li></ul></section>
+
+    <section id="avaliacao-manual" class="mb-5 mt-5 avaliacao-manual-section">
+      <h2>Avaliação manual</h2>
+      <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+      <p>A avaliação manual é feita por inspeção perícial dos diversos requisitos constantes da:</p>
+      <ul>
+        <li>checklist <strong>10 aspetos críticos de acessibilidade funcional</strong>;</li>
+        <li>checklist <strong>Conteúdo</strong> (se candidato a Selo Bronze);</li>
+        <li>checklist <strong>Transação</strong> (se candidato a Selo Prata).</li>
+      </ul>
+      <p>Sempre que os auditores localizam uma falha grave de um requisito de acessibilidade que, embora não faça parte do esquema de requisitos do Selo, se enquadre no âmbito das violações das WCAG 2.1 'AA' do W3C, tal referência é anotada em "Outras violações" do presente capítulo. Apesar destas violações não se apresentarem com carácter vinculativo no esquema de requisitos do Selo, recomenda-se que as mesmas sejam corrigidas.</p>
+      <div class="checklist-section">
+        <h3 id="checklist-10-aspetos">Checklist 10 aspetos</h3>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        
+      <p><strong>Nível de conformidade:</strong></p>
+        <ul>
+          <li><strong>Checklist 10 aspetos</strong>: 61.5% (16/26)
+            <ul>
+              <li>Requisitos avaliados: 27 (1 N/A excluído, 26 aplicáveis)</li>
+              <li>Requisitos OK: 16</li>
+              <li>Requisitos NOK: 10</li>
+              <li>Requisitos N/A: 1</li>
+            </ul>
+          </li>
+        </ul>
+    
+        <h4 class="requirement-title" id="req-chk10-r-1.2">Requisito 1.2 - É possível selecionar as opções e as subopções do menu quer com rato quer com teclado</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/43" class="issue-link" target="_blank" rel="noopener noreferrer">issue #43</a> <strong>Botão do menu mobile implementado com elemento de navegação inadequado</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível selecionar as opções e as subopções do menu quer com rato quer com teclado.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n12">Ver requisito 1.2 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Nos menus de navegação (versão mobile), verificou-se que o controlo utilizado para abrir o menu foi implementado através de um elemento <code>&lt;a&gt;</code>, apesar de representar uma ação de interface e não uma navegação para outra página.</p>
+<p>Os elementos <code>&lt;a&gt;</code> devem ser utilizados para navegação entre páginas ou recursos, enquanto ações como abrir e fechar menus devem ser implementadas através de elementos semanticamente adequados, como <code>&lt;button&gt;</code>.</p>
+<p>A utilização de um link para executar uma ação pode gerar interpretações incorretas por parte das tecnologias de apoio, que anunciam o elemento como uma hiperligação em vez de um botão. Além disso, esta abordagem dificulta a comunicação adequada do estado do componente, nomeadamente se o menu se encontra expandido ou colapsado.</p>
+<img src="https://github.com/user-attachments/assets/4b8d068e-3b14-4c04-b955-589f3f819cfb" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 01: Estrutura do botão do menu implementada com elemento <code>&lt;a&gt;</code>.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a> - versão mobile</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Substituir o elemento <code>&lt;a&gt;</code> utilizado para abrir o menu por um elemento semântico <code>&lt;button type="button"&gt;</code>.</li>
+<li>Garantir que a abertura e o fecho do menu são geridos através de um script associado ao botão.</li>
+<li>Utilizar o atributo <code>aria-expanded</code> para comunicar às tecnologias de apoio o estado atual do menu.</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/41" class="issue-link" target="_blank" rel="noopener noreferrer">issue #41</a> <strong>Os menus não estão estruturados como uma navegação de forma apropriada</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível selecionar as opções e as subopções do menu quer com rato quer com teclado.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n12">Ver requisito 1.2 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verifica-se que não está a ser utilizado a tag <code>nav</code> em nenhum menu de navegação. Isso faz com que ao navegar pelo website com o leitor de ecrã, não é possível realizar saltos diretamente para o menu, nem este é identificado como uma área de navegação:</p>
+<img src="https://github.com/user-attachments/assets/024f4660-cb39-42dd-a59f-2929d0c02f7b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem do menu principal não identificado como <code>nav</code></em></p>
+<img src="https://github.com/user-attachments/assets/df304043-253c-4f28-aa92-be6b2e2eeb8f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem do menu principal da versão mobile não identificado como <code>nav</code></em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a> - menu principal em todos os breakpoints.</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Todos os menus devem estar estruturados dentro de uma tag <code>nav</code>.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-1.3">Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/44" class="issue-link" target="_blank" rel="noopener noreferrer">issue #44</a> <strong>Texto alternativo do botão de fechar menu apresentado em idioma diferente do conteúdo da página</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>As imagem-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n13">Ver requisito 1.3 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Na versão mobile, o botão utilizado para fechar o menu apresenta o nome acessível "Close (Esc)", em inglês, apesar de o conteúdo do website estar em português.</p>
+<p>Foi também verificado que o botão de abertura do menu utiliza corretamente a designação "Menu", criando uma inconsistência linguística entre os dois controlos da mesma funcionalidade.</p>
+<p>Esta situação pode dificultar a compreensão da ação disponível por parte dos utilizadores de leitores de ecrã que esperam que os nomes acessíveis sejam apresentados no mesmo idioma do conteúdo da página.</p>
+<img src="https://github.com/user-attachments/assets/5775f828-49dc-4996-8fb2-b9c00df11f0d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a> - menu mobile</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Garantir que os nomes acessíveis dos componentes interativos utilizam o mesmo idioma do conteúdo principal da página.</li>
+<li>Substituir o texto alternativo "Close (Esc)" por uma designação equivalente em português, como por exemplo "Fechar menu (Esc)" ou "Fechar (Esc)".</li>
+<li>Rever os restantes nomes acessíveis e textos alternativos do website para assegurar consistência linguística em toda a interface.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-2.1">Requisito 2.1 - Existe um título h1 marcado na página</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/38" class="issue-link" target="_blank" rel="noopener noreferrer">issue #38</a> <strong>Ausência de título principal h1 na página</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe um título <code>&lt;h1&gt;</code> marcado na página.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n21">Ver requisito 2.1 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Na página analisada, verificou-se a ausência de um elemento <code>&lt;h1&gt;</code> que identifique o título principal do conteúdo.</p>
+<p>Conforme ilustrado na Figura 1, a estrutura da página apresenta vários elementos <code>&lt;h2&gt;</code> , mas não existe um elemento <code>&lt;h1&gt;</code> associado ao tema principal da página (“Política de Cookies”).</p>
+<p>A ausência de um título principal compromete a estrutura semântica da página e dificulta a compreensão da sua organização por utilizadores de tecnologias de apoio.</p>
+<img src="https://github.com/user-attachments/assets/71ce6fd6-84e8-4822-beaa-b9dc654447d5" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Estrutura de cabeçalhos da página, evidenciando a ausência de um elemento <code>&lt;h1&gt;</code> .</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<p><a href="https://associacaoincluir.pt/politica-de-cookies/">https://associacaoincluir.pt/politica-de-cookies/</a></p>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Adicionar um elemento <code>&lt;h1&gt;</code> que identifique o título principal da página, por exemplo “Política de Cookies”.</li>
+<li>Garantir que cada página contém um único elemento <code>&lt;h1&gt;</code> , correspondente ao conteúdo principal.</li>
+<li>Rever a hierarquia de cabeçalhos da página, assegurando uma estrutura lógica e consistente entre os diferentes níveis de títulos e subtítulos.</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/36" class="issue-link" target="_blank" rel="noopener noreferrer">issue #36</a> <strong>Existência de múltiplos h1 na página web</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe um título <code>&lt;h1&gt;</code> marcado na página.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n21">Ver requisito 2.1 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Cada página do website deve conter um único elemento <code>&lt;h1&gt;</code>, que represente o título principal do conteúdo. A utilização de múltiplos <code>&lt;h1&gt;</code> pode comprometer a interpretação da hierarquia da página por tecnologias de apoio.</p>
+<p>Na página de Declaração de Acessibilidade, verifica-se a existência de dois elementos <code>&lt;h1&gt;</code>, o que constitui uma utilização incorreta da estrutura de cabeçalhos.</p>
+<p>Esta duplicação introduz ambiguidade na identificação do título principal da página e prejudica a coerência da hierarquia semântica.</p>
+<img src="https://github.com/user-attachments/assets/d1767c28-044f-4a21-ab3b-04d17d212d56" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p>Figura 1 - Identificação de dois cabeçalhos marcados com <code>&lt;h1&gt;</code> na mesma página.</p>
+<p><strong>URLs a verificar:</strong></p>
+<p><a href="https://associacaoincluir.pt/acessibilidade/">https://associacaoincluir.pt/acessibilidade/</a></p>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Garantir que existe um único elemento h1, correspondente ao título principal de cada página.</li>
+<li>Em todas as páginas o título principal está a ser atribuído como h2 sendo necessário alterar para h1. Devem garantir que essa alteração não gere problemas na hierarquia entre os cabeçalhos.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-2.2">Requisito 2.2 - Existe uma marcação hierarquizada de títulos e subtítulos na página (h1...h6)</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/37" class="issue-link" target="_blank" rel="noopener noreferrer">issue #37</a> <strong>Saltos na hierarquia de cabeçalhos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe uma marcação hierarquizada de títulos e subtítulos na página <code>&lt;h1&gt;...&lt;h6&gt;</code>.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n22">ver requisito 2.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Nas páginas analisadas, foram identificados saltos na hierarquia de cabeçalhos (ex.: utilização de <code>&lt;h3&gt;</code> sem existência prévia de <code>&lt;h2&gt;</code>).</p>
+<p>Estas inconsistências comprometem a correta estrutura semântica das páginas e dificultam a navegação por utilizadores de tecnologias de apoio.</p>
+<img src="https://github.com/user-attachments/assets/225c3dd1-9842-4fc3-9cf2-24ed50200185" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Salto na hierarquia de cabeçalhos, com utilização de <code>&lt;h3&gt;</code> sem <code>&lt;h2&gt;</code>.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<p><a href="https://associacaoincluir.pt/politica-de-cookies/">https://associacaoincluir.pt/politica-de-cookies/</a></p>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Implementar uma hierarquia consistente de cabeçalhos (<code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>) em todas as páginas, respeitando a ordem sequencial, sem saltos de níveis.</li>
+<li>Garantir que cada página contém um único <code>&lt;h1&gt;</code> por página, correspondente ao conteúdo principal.</li>
+<li>Rever a estrutura semântica das páginas de forma a assegurar que os níveis de cabeçalhos refletem corretamente a relação hierárquica entre secções e subseções.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-3.2">Requisito 3.2 - A legenda da tabela está marcada com o elemento caption</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/40" class="issue-link" target="_blank" rel="noopener noreferrer">issue #40</a> <strong>Elemento caption em falta na legenda da tabela</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 3.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>A legenda da tabela está marcada com o elemento <code>&lt;caption&gt;</code><br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n32">ver requisito 3.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Foi verificado que a tabela avaliada não possui uma legenda identificada através do elemento <code>&lt;caption&gt;</code> .</p>
+<p>A ausência deste elemento dificulta a identificação e contextualização da tabela por utilizadores de tecnologias de apoio, que dependem da legenda para compreender o propósito e o conteúdo dos dados apresentados.</p>
+<img src="https://github.com/user-attachments/assets/9ad8e0e2-2330-4d61-9b22-145c1c1966ce" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Tabela sem utilização do elemento  para identificação da respetiva legenda .</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<p><a href="https://associacaoincluir.pt/politica-de-cookies/">https://associacaoincluir.pt/politica-de-cookies/</a></p>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Adicionar uma legenda descritiva à tabela através do elemento <code>&lt;caption&gt;</code>.</li>
+<li>Garantir que a legenda descreve adequadamente o conteúdo e a finalidade da tabela.</li>
+<li>Incluir, quando aplicável, informação adicional relevante, como a fonte dos dados apresentados.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/63" class="issue-link" target="_blank" rel="noopener noreferrer">issue #63</a> <strong>O atributo placeholder está a substituir a etiqueta</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n41">ver requisito 4.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>No formulário de pesquisa da página <a href="https://associacaoincluir.pt/politica-de-cookies/">Política de cookies</a>, verificámos que não existe etiqueta no campo de pesquisa:</p>
+<img src="https://github.com/user-attachments/assets/7a5416dc-b199-4c5a-92de-399b35d8f775" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+<p><em>Campo de pesquisa sem etiqueta e com atributo placeholder</em></p>
+<p>Como se pode observar na figura, o campo de pesquisa não tem um elemento <code>&lt;label&gt;</code>, mas sim um atributo placeholder que está a substituir a etiqueta.<br>Tal situação não é recomendável, uma vez que o conteúdo do placeholder desaparece da interface assim que se começa a escrever no campo, o que pode ser prejudicial para utilizadores com défice de memória.<br>Quando cada campo tem uma etiqueta que lhe está associada programaticamente, é possível focar o campo ao clicar na etiqueta (ampliação da área de clique), o que pode beneficiar pessoas com dificuldades motoras ao selecionar um campo específico.</p>
+<p><strong>URLs a verificar:</strong><br><a href="https://associacaoincluir.pt/politica-de-cookies/">https://associacaoincluir.pt/politica-de-cookies/</a></p>
+<p><strong>Recomendações:</strong><br>Recomendamos a revisão dos formulários para garantir que todos os campos estejam corretamente construídos:</p>
+<ul>
+<li>A etiqueta do campo deve estar estruturada como <label> e deve estar associada ao campo.</label></li>
+<li>Para estar associada ao campo, o atributo for da etiqueta e o id do campo de input devem ser iguais.<br>Alguns exemplos de estrutura seriam:</li>
+</ul>
+<pre><code>&lt;label for="firstname"&gt;Primeiro nome:&lt;/label&gt;
+&lt;input type="text" name="first" id="firstname"&gt;
+</code></pre>
+<p>Ou,</p>
+<pre><code>&lt;label&gt;
+    Primeiro nome:
+    &lt;input type="text" name="firstname"&gt;
+&lt;/label&gt;
+</code></pre>
+<ul>
+<li>O placeholder é um complemento e não um substituto da etiqueta.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-4.2">Requisito 4.2 - É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã</h4>
+<div class="requirement-content">
+<p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span> (no entanto contém 1 melhoria que se recomenda efetuar)</p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/64" class="issue-link" target="_blank" rel="noopener noreferrer">issue #64</a> <strong>Há campos obrigatórios que não estão identificados programaticamente</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n42">ver requisito 4.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificámos que a checkbox de concordância com o armazenamento dos dados do formulário de <a href="https://associacaoincluir.pt/contactos/">Contactos</a> é de preenchimento obrigatório, mas não está programaticamente definido como tal:</p>
+<img src="https://github.com/user-attachments/assets/6abcb6e7-ad85-443c-89f1-a3db0a947310" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+<p><em>Análise do campo de concordância com o armazenamento dos dados do formulário de contactos</em><br><strong>URLs a verificar:</strong><br><a href="https://associacaoincluir.pt/contactos">https://associacaoincluir.pt/contactos</a></p>
+<p><strong>Recomendações:</strong><br>Recomendamos que, em todos os campos obrigatórios, seja adicionado o atributo <code>required</code> de forma a reforçar aos utilizadores de tecnologias de apoio que o campo em questão é um campo de preenchimento obrigatório.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-4.3">Requisito 4.3 - É possível localizar e ler as mensagens de erro usando apenas um leitor de ecrã</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/65" class="issue-link" target="_blank" rel="noopener noreferrer">issue #65</a> <strong>Existem mensagens de erro ocultas das tecnologias de apoio</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível localizar e ler as mensagens de erro usando apenas um leitor de ecrã.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n43">ver requisito 4.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>Os campos 'Nome', 'Email' e 'assunto' do formulário de <a href="https://associacaoincluir.pt/contactos/">Contactos</a> apresentam mensagens de erro na sua vizinhança, mas as mesmas estão ocultas das tecnologias de apoio através do atributo aria-hidden = “true”, o que impede que os utilizadores destas tecnologias consigam percecioná-las através da navegação por elementos:</p>
+<img src="https://github.com/user-attachments/assets/96e2d200-8efc-43a3-bd93-2f923d736706" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+<p><em>Mensagem de erro do campo nome oculta para as tecnologias de apoio</em></p>
+<p>Para além disso, a mensagem no topo com a lista sumária dos erros, para além de estar visível apenas para as tecnologias de apoio, não transmite informação acerca de quais dos campos foram incorretamente preenchidos, e não direciona o foco para cada um deles.</p>
+<img src="https://github.com/user-attachments/assets/87c5d522-1194-409b-a486-594f1e2b4d01" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+<p><em>Mensagem no topo oculta visualmente e não ajudando no correto preenchimento do formulário</em></p>
+<p>Como observado na figura, a mensagem “Por favor preencha este campo.” Não indica de que campo se trata, nem permite direcionar o foco para o campo.</p>
+<p>Verificámos ainda que foi adicionado o atributo aria-describedby a cada campo (associação programática da mensagem de erro ao campo), o que permite que cada mensagem de erro seja anunciada ao navegar por teclado (tab e shift+tab), mas o id colocado em cada valor de aria-describedby é o da respetiva mensagem de erro presente no topo e não o da mensagem na vizinhança do campo.<br>Ao serem utilizados os ids das mensagens na vizinhança dos campos nos valores dos atributos aria-describedby  desses campos mantém-se a coerência de anúncio de mensagens de erro para todos os utilizadores.<br>Para além disso, a existência de mensagens no topo do formulário não é obrigatório caso o formulário tenha um número reduzido de campos, mas caso exista deve ser bem construída.</p>
+<p><strong>URLs a verificar:</strong><br><a href="https://associacaoincluir.pt/contactos/">Contactos</a></p>
+<p><strong>Recomendações:</strong><br>Recomendamos que sejam apresentadas mensagens de erro junto aos campos de todos os formulários, visíveis para todos os agentes, para assim fornecerem apoio na correção dos mesmos e consequente submissão correta dos formulários. No caso do formulário aqui referido basta que seja removido o atributo aria-hidden de cada mensagem de erro.<br>Adicionalmente, pode existir uma lista dos erros no topo de cada formulário que consolida os vários erros existentes, em que cada mensagem deve, não só remeter para o respetivo campo (por exemplo, através da colocação da mensagem num link cujo href contenha o id do respetivo campo), mas também deve conter o descritivo do campo, de modo a que o campo a que a mensagem se refere seja percecionado sem ser necessário remeter-lhe o foco a partir da mensagem.<br>Um exemplo de um item de mensagem de topo seria:</p>
+<pre><code>&lt;li&gt;&lt;a href="#id_do_campo_nome"&gt;'Nome': por favor preencha este campo&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>Recomendamos ainda que os ids presentes nos atributos aria-describedby de cada campo sejam os das mensagens na vizinhança dos campos.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-5.2">Requisito 5.2 - O gráfico é acompanhado de uma descrição longa</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/49" class="issue-link" target="_blank" rel="noopener noreferrer">issue #49</a> <strong>Não foram identificados gráficos no website</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>O gráfico é acompanhado de uma descrição longa.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n52">ver requisito 5.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Após análise ao website, não foram identificados gráficos, diagramas ou outros elementos visuais de representação de dados que requeiram alternativas textuais específicas.</p>
+<p>Desta forma, o requisito relativo à existência de descrições alternativas para gráficos não é aplicável no contexto atual do website avaliado.</p>
+<p><strong>URLs a verificar:</strong></p>
+<p>N/A</p>
+<p><strong>Recomendações:</strong></p>
+<p>N/A</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-6.1">Requisito 6.1 - No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/55" class="issue-link" target="_blank" rel="noopener noreferrer">issue #55</a> <strong>Texto normal não têm contraste suficiente</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 6.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n61">ver requisito 6.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<ul>
+<li>O contraste no texto normal (menor que 18 pontos ou menor que 14 pontos negrito) das páginas deve ser, no mínimo 4,5:1, para que pessoas com baixa visão consigam ler o texto.</li>
+</ul>
+<p>A avaliação com a ferramenta <a href="https://vispero.com/color-contrast-checker/">Colour Contrast Analyser</a> revela problemas relacionados com insuficiência de contraste, afetando diretamente a legibilidade. </p>
+<p>O <a href="https://associacaoincluir.pt/">website</a> apresenta problemas de contraste no texto normal do menu principal da versão para dispositivos móveis na combinação de cores #848484FF(cor de primeiro plano) e #F4F4F4(cor de plano de fundo) que torna os textos pouco visíveis. (Figura 1)</p>
+<img src="https://github.com/user-attachments/assets/7c1cce59-a4e0-4065-aaf1-cfbe911ac5af" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1- Texto normal nas opções do menu para dispositivos móveis com problemas de contraste, com uma taxa de apenas 3,4:1</em></p>
+<p>Além disso, há problemas de contraste nos estados de hover das hiperligações, por exemplo na página  #29B94C(cor de primeiro plano) e #FFFFFF(cor de plano de fundo) que torna os textos pouco visíveis. (Figura 2) </p>
+<img src="https://github.com/user-attachments/assets/63447142-233a-4c3e-a4e2-b5a2a846f72d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 2- Estado de hover dos textos das hiperligações com problemas de contraste, com uma taxa de apenas 2,6:1</em></p>
+<p>Esta implementação dificultando perceção e compromete a leitura e interpretação da informação, especialmente para utilizadores com baixa visão.</p>
+<p><strong>URLs a verificar</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a> (Todo website)</li>
+</ul>
+<p><strong>Recomendações</strong><br>Recomendamos a revisão das combinações  de cores das páginas de todo website para garantir os valores mínimos de contraste do normal. Garantir consistência nos estados visuais (normal, hover, foco) com contraste adequado;</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/46" class="issue-link" target="_blank" rel="noopener noreferrer">issue #46</a> <strong>Legendas automáticas em conteúdos multimédia</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 7.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>O vídeo ou áudio deve conter preferencialmente legendas fechadas sincronizadas.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n72">ver requisito 7.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Nos vídeos avaliados, verificou-se a existência de legendas automáticas disponibilizadas através da plataforma YouTube. Estas legendas são geradas automaticamente e permitem acompanhar de forma geral o conteúdo áudio dos vídeos.</p>
+<p>Não foram identificados outros mecanismos adicionais de legendagem ou revisão manual das legendas para melhoria de precisão ou correção de eventuais erros de transcrição automática.</p>
+<img src="https://github.com/user-attachments/assets/57b43509-d7ab-4f52-b061-e0128213b092" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Exemplo de vídeo com legendas automáticas ativadas na interface do YouTube .</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/sou-consigo-e-faco/">https://associacaoincluir.pt/sou-consigo-e-faco/</a></li>
+<li><a href="https://associacaoincluir.pt/minuto-solidario-montepio-2015/">https://associacaoincluir.pt/minuto-solidario-montepio-2015/</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Apesar de existir suporte a legendas automáticas, recomenda-se a disponibilização de legendas revistas ou editadas manualmente, de forma a garantir maior precisão, qualidade linguística e melhor acessibilidade para utilizadores surdos ou com dificuldades auditivas.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-8.3">Requisito 8.3 - Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/35" class="issue-link" target="_blank" rel="noopener noreferrer">issue #35</a> <strong>Utilização incorreta de aria-expanded no elemento `&lt;li&gt;`</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira o CSS, deve ser possível reconhecer a semântica dos diversos elementos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n83">ver requisito 8.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Foi identificada a utilização do atributo <code>aria-expanded</code> num elemento não interativo (<code>&lt;li&gt;</code>) do menu mobile:</p>
+<pre><code>&lt;li class="menu-item menu-item-has-children has-child"
+    aria-expanded="false"&gt;
+</code></pre>
+<p>O controlo responsável pela expansão/recolha do submenu é efetuado através de um elemento <code>&lt;button&gt;</code> independente:</p>
+<p><code>&lt;button class="toggle" aria-label="Toggle"&gt;</code></p>
+<p>No entanto, o estado de expansão (<code>aria-expanded</code>) não se encontra associado ao elemento interativo responsável pela ação.</p>
+<p>De acordo com as boas práticas de acessibilidade, o atributo<code> aria-expanded</code> deve ser aplicado ao elemento de controlo que expande ou recolhe o conteúdo (por exemplo, <code>&lt;button&gt;</code>), permitindo que tecnologias de apoio anunciem corretamente o estado do componente.</p>
+<img src="https://github.com/user-attachments/assets/f7d500b2-5382-4cc0-af50-bf08798fa939" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 2 - Utilização incorreta de <code>aria-expanded</code> no elemento <code>&lt;li&gt;</code> do menu mobile</em></p>
+<p>Os leitores de ecrã poderão não anunciar corretamente o estado expandido/recolhido do submenu, dificultando a compreensão da estrutura de navegação e do estado atual do componente.</p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a></li>
+<li>(em todo o website na versão mobile)</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Remover o atributo <code>aria-expanded</code> do elemento <code>&lt;li&gt;</code>;</li>
+<li>Aplicar <code>aria-expanded</code> ao botão responsável pela expansão do submenu;</li>
+<li>Garantir atualização dinâmica do valor (true / false) conforme o estado do submenu;</li>
+<li>Associar o botão ao submenu correspondente através de <code>aria-controls</code>, quando aplicável;</li>
+<li>Substituir labels genéricas como "Toggle" por descrições contextualizadas da ação, por exemplo: "Expandir submenu Sobre Nós".</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/34" class="issue-link" target="_blank" rel="noopener noreferrer">issue #34</a> <strong>Modal do menu mobile sem semântica apropriada de diálogo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira o CSS, deve ser possível reconhecer a semântica dos diversos elementos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n83">ver requisito 8.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Foi identificado que o menu mobile apresentado em formato modal/off-canvas não utiliza uma estrutura semântica apropriada para representar um diálogo/modal acessível.</p>
+<p>O conteúdo do menu é apresentado dentro de elementos genéricos <code>&lt;div&gt;</code>, sem utilização de um mecanismo semântico que identifique programaticamente a região como um diálogo/modal:</p>
+<p><code>&lt;div class="mfp-wrap mfp-auto-cursor off-canvas off-canvas-left mfp-ready" tabindex="-1"&gt;</code></p>
+<p>Não foi identificada a utilização de atributos semânticos apropriados para este tipo de componente, tais como:</p>
+<ul>
+<li><code>role="dialog"</code></li>
+<li><code>aria-modal="true"</code></li>
+<li><code>aria-label="Menu principal"</code></li>
+</ul>
+<p>ou equivalente através do elemento semântico <code>&lt;dialog&gt;</code>.</p>
+<p>A ausência desta semântica impede que tecnologias de apoio reconheçam adequadamente a mudança de contexto quando o menu mobile é aberto.</p>
+<p>Leitores de ecrã poderão não anunciar corretamente a abertura de uma modal, dificultando a perceção de contexto e a compreensão da estrutura da interface.</p>
+<img src="https://github.com/user-attachments/assets/6870c154-2080-4322-9b7e-670d8060763f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Modal do menu mobile sem semântica apropriada de diálogo</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a></li>
+<li>(em todo o website na versão mobile)</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Garantir que o menu mobile é identificado semanticamente como um diálogo/modal;</li>
+<li>Utilizar o elemento semântico <code>&lt;dialog&gt;</code> ou adicionar <code>role="dialog"</code> ao contentor do modal;</li>
+<li>Definir <code>aria-modal="true"</code> para indicar que a interação está limitada ao modal;</li>
+<li>Garantir um nome acessível ao modal através de <code>aria-label</code> ou <code>aria-labelledby</code>;</li>
+<li>Validar o comportamento com tecnologias de apoio para confirmar o correto anúncio da região modal.</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/29" class="issue-link" target="_blank" rel="noopener noreferrer">issue #29</a> <strong>Item de menu sem função identificável e sem semântica adequada</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira o CSS, deve ser possível reconhecer a semântica dos diversos elementos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n83">ver requisito 8.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Foi identificado, no menu mobile, um item apresentado como elemento de navegação (<code>&lt;a&gt;</code>), mas sem função identificável nem propósito claro para o utilizador.</p>
+<p>O elemento não possui destino (<code>href</code>) nem executa qualquer ação quando ativado, apresentando apenas o carácter “-” como conteúdo visível e a indicação técnica “WooCommerce needed” através do atributo title.</p>
+<pre><code>&lt;li&gt;
+    &lt;a class="element-error tooltip" title="WooCommerce needed"&gt;-&lt;/a&gt;
+&lt;/li&gt;
+</code></pre>
+<p>Este comportamento introduz um elemento interativo sem significado funcional, podendo gerar confusão para utilizadores, particularmente quando navegam por links ou estrutura semântica da página através de tecnologias de apoio.</p>
+<p>Como consequência, o menu mobile inclui uma opção de navegação sem utilidade ou significado identificável, comprometendo a clareza semântica da interface.</p>
+<img src="https://github.com/user-attachments/assets/01ab2018-cac2-47e0-a88d-a5ffc20d2083" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Item de menu mobile sem função identificável</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a></li>
+<li>(em todas as páginas do website)</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Remover o item de menu caso não corresponda a uma funcionalidade efetiva do website;</li>
+<li>Garantir que todos os elementos de navegação possuem propósito claro e funcionalidade efetiva;</li>
+<li>Evitar exposição de mensagens técnicas ou internas de configuração (ex.: “WooCommerce needed”) na interface pública;</li>
+<li>Garantir que elementos interativos possuem nome compreensível e comportamento consistente para os utilizadores.</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/23" class="issue-link" target="_blank" rel="noopener noreferrer">issue #23</a> <strong>Duplicação do landmark principal (main)</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira o CSS, deve ser possível reconhecer a semântica dos diversos elementos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n83">ver requisito 8.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Foi identificada a utilização duplicada do landmark principal da página, através da combinação de um elemento <code>&lt;main&gt;</code> e de um elemento adicional com <code>role="main"</code>.</p>
+<pre><code>&lt;main id="main" class=""&gt;
+
+&lt;div id="content" role="main" class="content-area"&gt;
+</code></pre>
+<p>A existência de múltiplos landmarks principais sem necessidade funcional pode dificultar a navegação semântica por tecnologias de apoio, uma vez que leitores de ecrã permitem navegação rápida entre landmarks e poderão anunciar múltiplas regiões principais indistintas.</p>
+<p>Como consequência, os utilizadores podem ter dificuldade em compreender qual a verdadeira área principal de conteúdo da página.</p>
+<img src="https://github.com/user-attachments/assets/f1bc6c55-26da-4548-ab04-eda0925376a3" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Duplicação do landmark principal (<code>main</code>) na estrutura da página</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a></li>
+<li>(em todas as páginas do website)</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Garantir a existência de apenas um landmark principal por página;</li>
+<li>Remover o <code>role="main"</code> redundante quando já existe um elemento <code>&lt;main&gt;</code>;</li>
+<li>Utilizar apenas um mecanismo semântico para representar a área principal do conteúdo;</li>
+<li>Validar a navegação por landmarks com leitores de ecrã para confirmar existência de uma única região principal.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+
+      </div>
+      <div class="checklist-section">
+        <h3 id="checklist-conteudo">Checklist Conteúdo</h3>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        
+      <p><strong>Nível de conformidade:</strong></p>
+        <ul>
+          <li><strong>Checklist Conteúdo</strong>: 23.5% (4/17)
+            <ul>
+              <li>Requisitos avaliados: 17 (17 aplicáveis)</li>
+              <li>Requisitos OK: 4</li>
+              <li>Requisitos NOK: 13</li>
+              
+            </ul>
+          </li>
+        </ul>
+    
+        <h4 class="requirement-title" id="req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/25" class="issue-link" target="_blank" rel="noopener noreferrer">issue #25</a> <strong>Falta de resumo na página inicial do website</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span></div>
+                <div class="issue-content"><blockquote>
+<p>O sítio Web apresenta um resumo breve do seu propósito, visível sem fazer scroll.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n11">ver requisito 1.1 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Na página principal sem fazer scroll, não aparece presente um resumo breve do próposito do site.</p>
+<img src="https://github.com/user-attachments/assets/a48e6c07-4c9a-4039-a78a-4124503f2cd1" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem da página principal sem fazer scroll</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>O propósito deve transmitir, de forma clara, o que o utilizador pode efetivamente encontrar e realizar no website. Esse propósito deve ser imediatamente visível na página, sem ser necessário fazer scroll, avançar no slideshow, entre outros.</p>
+<p>Como exemplo de uma boa prática, é possível verificar no website <a href="https://selo.usabilidade.gov.pt/">selo.usabilidade.gov</a> que o seu propósito está escrito no topo da página:</p>
+<img src="https://github.com/user-attachments/assets/dbc7d6b1-77db-4e77-a871-4efb4d2ca1ae" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem exemplo de uma frase de propósito do website selo.usabilidade.gov</em></p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/27" class="issue-link" target="_blank" rel="noopener noreferrer">issue #27</a> <strong>Falta de glossário para termos complexos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os termos mais complexos têm uma definição agregada.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n12">ver requisito 1.2 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Ao longo do website, é possível identificar a utilização de diversos termos técnicos e complexos que surgem sem qualquer definição ou explicação associada. Na ausência de um glossário ou de mecanismos que permitam esclarecer esses conceitos, os utilizadores podem ter dificuldade em compreender plenamente a informação apresentada, especialmente aqueles que não estão familiarizados com a terminologia utilizada.</p>
+<img src="https://github.com/user-attachments/assets/63c9691f-8538-4fdc-bc6b-d340a485fdc3" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem com o termo complexo "ATL" sem definição agregada. Disponível em: <a href="https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/">https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/</a></em></p>
+<img src="https://github.com/user-attachments/assets/2f678346-c32f-4d4b-bc6f-e293bda8df72" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem com os termos complexos "IBAN" e "CCAM" sem definição agregada. Disponível em: <a href="https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/">https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/</a></em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/contactos/">https://associacaoincluir.pt/contactos/</a> - AADPCMCSM</li>
+<li><a href="https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/">https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/</a> - IBAN, CCAM, IRS, NIF</li>
+</ul>
+<p> <strong>Recomendações:</strong></p>
+<p>Recomenda-se a criação de um glossário que permita a utilização consistente de siglas ao longo do website, evitando que o utilizador tenha de procurar repetidamente a sua definição noutros parágrafos.</p>
+<p>Como exemplo podem visualizar o glossario do <a href="https://www.acessibilidade.gov.pt/glossario/">acessibilidade.gov</a>.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-1.3">Requisito 1.3 - Cada bloco de conteúdo contém a sua data de atualização</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/26" class="issue-link" target="_blank" rel="noopener noreferrer">issue #26</a> <strong>Falta de datas de atualização em blocos de conteúdo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Cada bloco de conteúdo contém a sua data de atualização.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n13">ver requisito 1.3 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Não foi possível identificar datas de atualização em certos blocos de conteúdo analisados. Considerando que as informações relativas às associações são relevantes e exigem credibilidade, é fundamental que todos os conteúdos apresentem uma data de atualização visível, de forma a reforçar a confiança, a transparência e a fiabilidade da informação disponibilizada.</p>
+<p>A falta dessas referências compromete a perceção de atualidade e fiabilidade da informação disponibilizada, tornando mais difícil para o utilizador avaliar se os conteúdos e contactos apresentados continuam válidos. A inclusão de datas de atualização, especialmente em páginas institucionais e informativas, é um elemento fundamental para reforçar a transparência, a credibilidade e a confiança na informação fornecida.</p>
+<img src="https://github.com/user-attachments/assets/da9af2b0-b46e-4277-a355-5ed1bfd140ea" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Página de contactos sem data de atualização.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/contactos/">https://associacaoincluir.pt/contactos/</a></li>
+<li><a href="https://associacaoincluir.pt/objetivos/">https://associacaoincluir.pt/objetivos/</a></li>
+<li><a href="https://associacaoincluir.pt/sobre-nos/">https://associacaoincluir.pt/sobre-nos/</a></li>
+<li><a href="https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/">https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/</a></li>
+<li><a href="https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/">https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/</a></li>
+<li>entre outros;</li>
+</ul>
+<p> <strong>Recomendações:</strong></p>
+<ul>
+<li>Incluir a data de publicação e/ou última atualização em todos os conteúdos relevantes;</li>
+<li>Garantir que essa informação está semanticamente estruturada;</li>
+<li>Assegurar consistência na apresentação das datas em todo o site.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-1.4">Requisito 1.4 - A informação sobre a entidade responsável pelo conteúdo está em todas as páginas</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/28" class="issue-link" target="_blank" rel="noopener noreferrer">issue #28</a> <strong>Falta da informação da entidade responsável</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.4</span></div>
+                <div class="issue-content"><blockquote>
+<p>A informação sobre a entidade responsável pelo conteúdo está em todas as páginas.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n14">ver requisito 1.4 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Todas as páginas devem apresentar o nome da entidade responsável pelos conteúdos publicados no site. O nome da entidade pode ser apresentado através de um logótipo ou texto, mas deve estar por extenso.</p>
+<p>Apesar de conter acesso rápido aos contactos. Observamos que o nome da entidade responsável não está disponível, o texto ”Todos os direitos reservados” não remete à entidade responsável.</p>
+<img src="https://github.com/user-attachments/assets/de0f1fe9-9c9a-4c8c-9f1f-3f5987b8f836" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem do rodapé com os direitos de autor e hiperligação para os contactos.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a> - rodapé</li>
+</ul>
+<p> <strong>Recomendações:</strong></p>
+<p>Deve ser adicionado o nome da entidade por extenso em todo o website, como é possível observar no <a href="https://www.acessibilidade.gov.pt/">acessibilidade.gov.pt</a>:</p>
+<img src="https://github.com/user-attachments/assets/d7b03d4f-3088-4d1c-994a-f68039a6642f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem de exemplo do rodapé do <a href="https://www.acessibilidade.gov.pt/">acessibilidade.gov.pt</a></em></p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-2.1">Requisito 2.1 - O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/22" class="issue-link" target="_blank" rel="noopener noreferrer">issue #22</a> <strong>Informações primárias não possuem tamanho mínimo recomendado</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n21">ver requisito 2.1 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificámos que, no website <a href="https://associacaoincluir.pt/">Associação Incluir</a>, existem alguns conteúdos textuais apresentados com um tamanho de letra inferior ao recomendado para uma leitura confortável.</p>
+<p>As opções do menu principal, incluindo "Sobre Nós", "Objetivos", "Como Apoiar", "Contactos" e "Documentos", apresentam um tamanho de letra de 14px, valor inferior aos 16px recomendados. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/365081e1-d9e8-48af-b1b3-01daae5fee19" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01 — As opções do menu principal apresentam um tamanho de letra de 14px.</em></p>
+
+<p>Os botões "A Nossa História" , "Os Nossos Serviços" e  "Como apoiar a incluir" apresentam um tamanho de letra de 15,52px, valor inferior aos 16px recomendados para conteúdos textuais. (Figura 02)</p>
+<img src="https://github.com/user-attachments/assets/6436165b-655b-4502-bb50-a2e5ec919d7e" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 02 — O Botão "A Nossa História" apresenta um tamanho de letra de 15,52px.</em></p>
+
+<p>Na janela de cookies do website <a href="https://associacaoincluir.pt/">Associação Incluir</a>, as hiperligações "Política de Privacidade" e "Política de Cookies" apresentam um tamanho de letra de 14px. (Figura 03)</p>
+<img src="https://github.com/user-attachments/assets/7b4f1e22-e0c8-4225-93e7-fc7f3d44a33d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 03 — As hiperligações "Política de Privacidade" e "Política de Cookies" na janela de cookies apresentam um tamanho de letra de 14px.</em></p>
+
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/sobre-nos/">Sobre Nós</a>, o botão "Apoiar Agora" apresenta um tamanho de letra de 15,42px. (Figura 04)</p>
+<img src="https://github.com/user-attachments/assets/73b4d53c-c3c8-4e87-b50b-def6d9620bea" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 04 — O botão "Apoiar Agora" apresenta um tamanho de letra de 15,42px.</em></p>
+
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/contactos/">Contactos</a>, as mensagens de validação apresentadas no formulário, como "Por favor preencha este campo.", utilizam um tamanho de letra de 14,4px. (Figura 05)</p>
+<img src="https://github.com/user-attachments/assets/af64c757-d4c9-406c-99be-70f42a28d5cb" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 05 — A mensagem de validação do formulário apresenta um tamanho de letra de 14,4px.</em></p>
+
+<p>Adicionalmente, a hiperligação "Mostrar informações sobre o serviço" apresenta um tamanho de letra de 14px.<br>(Figura 06)</p>
+<img src="https://github.com/user-attachments/assets/b9a18847-9625-421e-bad8-a8f55ea20f67" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 06 — A hiperligação "Mostrar informações sobre o serviço" apresenta um tamanho de letra de 14px.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a> - <em>Menu Princiapal, Botões "A nossa historia", "Os Nossos Serviços" e "Como apoiar a incluir"</em></li>
+<li><a href="https://associacaoincluir.pt/sobre-nos/">https://associacaoincluir.pt/sobre-nos/</a> - <em>Botão "Apoiar agora."</em></li>
+<li><a href="https://associacaoincluir.pt/objetivos/">https://associacaoincluir.pt/objetivos/</a> - <em>Botão "Apoiar agora."</em></li>
+<li><a href="https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/">https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/</a> - <em>Botão "Contacte-nos."</em></li>
+<li><a href="https://associacaoincluir.pt/contactos/">https://associacaoincluir.pt/contactos/</a> - <em>Botão "Submeter" e Mensagens de erro do formulário.</em></li>
+<li><a href="https://associacaoincluir.pt/contactos/">https://associacaoincluir.pt/contactos/</a> <em>(Informações úteis dos contactos: "(Chamada para a rede fixa nacional) e "(Chamada para a rede móvel nacional – MEO)"</em></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Garantir que os conteúdos textuais do website são apresentados com um tamanho de letra adequado à leitura em diferentes dispositivos e contextos de utilização.<br>Recomenda-se a revisão dos elementos identificados, assegurando que menus, botões, hiperligações, mensagens de apoio e restantes conteúdos textuais utilizam, sempre que possível, um tamanho de letra não inferior a 16px, promovendo uma leitura mais confortável e uma melhor perceção da informação.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-2.3">Requisito 2.3 - Blocos e linhas de texto com largura não superior a 100 caracteres</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/15" class="issue-link" target="_blank" rel="noopener noreferrer">issue #15</a> <strong>Existem blocos de textos com mais de 100 caracteres por linha</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Blocos e linhas de texto com largura não superior a 100 caracteres.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n23">ver requisito 2.3 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificámos que, na página inicial do website <a href="https://associacaoincluir.pt/">Associação Incluir</a>, a secção "Cada contribuição faz a diferença!" apresenta blocos de texto com uma largura superior à recomendada para uma leitura confortável. Foi identificada uma extensão de 110 caracteres por linha, valor superior ao limite recomendado de 100 caracteres. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/065454ea-faad-48db-a995-2ccddb322fe4" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01 — Análise de bloco de texto da secção "Cada contribuição faz a diferença!" da página inicial na ferramenta <a href="https://wordcounter.net/">WordCounter</a>, com 110 caracteres por linha.</em></p>
+
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/objetivos/">Objetivos</a>, existem blocos de texto com uma largura superior à recomendada para uma leitura confortável.<br>Foi identificada uma extensão de 123 caracteres por linha, valor superior ao limite recomendado de 100 caracteres.<br>(Figura 02)</p>
+<img src="https://github.com/user-attachments/assets/e81845ea-d260-4af1-8de3-4adb12a7bf32" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 02 — Análise de bloco de texto da página "Objetivos"  na ferramenta <a href="https://wordcounter.net/">WordCounter</a>, com aproximadamente 123 caracteres por linha, acima do limite recomendado.</em></p>
+
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/termos-e-condicoes/">Termos e Condições</a>, existem blocos de texto com uma largura superior à recomendada para uma leitura confortável.<br>Foi identificada uma extensão de 154 caracteres por linha, valor superior ao limite recomendado de 100 caracteres.</p>
+<img src="https://github.com/user-attachments/assets/7373c565-5981-4193-823f-3df09a44d38b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 03 — Análise de bloco de texto da página "Termos e Condições" na ferramenta <a href="https://wordcounter.net/">WordCounter</a>, com aproximadamente 154 caracteres por linha.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/objetivos/-">https://associacaoincluir.pt/objetivos/-</a> <em>123 caracteres.</em></li>
+<li><a href="https://associacaoincluir.pt/sobre-nos/#quem-somos">https://associacaoincluir.pt/sobre-nos/#quem-somos</a> - <em>118 caracteres.</em></li>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a> - <em>110 caracteres.</em></li>
+<li><a href="https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/">https://associacaoincluir.pt/como-apoiar-a-associacao-incluir/</a> - <em>118 caracteres.</em></li>
+<li><a href="https://associacaoincluir.pt/contactos/">https://associacaoincluir.pt/contactos/</a> - <em>118 caracteres.</em></li>
+<li><a href="https://associacaoincluir.pt/documentos/">https://associacaoincluir.pt/documentos/</a> - <em>147 caracteres.</em></li>
+<li><a href="https://associacaoincluir.pt/termos-e-condicoes/">https://associacaoincluir.pt/termos-e-condicoes/</a> - <em>154 caracteres.</em></li>
+<li><a href="https://associacaoincluir.pt/politica-de-privacidade/">https://associacaoincluir.pt/politica-de-privacidade/</a> - <em>151 caracteres.</em></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Revisar blocos de textos para garantir que não é ultrapassado o número máximo de caracteres por linha. Recomendamos que seja definida uma largura máxima para as caixas de texto <code>max-width, em CSS</code>, com unidades relativas ao tamanho de fonte unidades <code>em</code> ou <code>rem</code>.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-2.4">Requisito 2.4 - O espaçamento entre linhas não é inferior a 1.5x o tamanho da letra</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/16" class="issue-link" target="_blank" rel="noopener noreferrer">issue #16</a> <strong>O espaçamento entre linhas está abaixo do recomendado</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.4</span></div>
+                <div class="issue-content"><blockquote>
+<p>O espaçamento entre linhas não é inferior a 1.5x o tamanho da letra.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n24">ver requisito 2.4 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/">Banco de Recursos para a Inclusão</a>, existem conteúdos tabulares com tamanho de letra inferior ao recomendado. Por exemplo, na secção "Orçamento", a tabela apresenta texto com espaçamento de 15.12px para um tamanho de letra de 14.4px. (Figura 1)</p>
+<img src="https://github.com/user-attachments/assets/7fd5e237-d0bd-4c53-a511-85985edce53b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01 — A tabela da secção "Orçamento" apresenta texto com espaçamento de 15.12px para um tamanho de letra de 14.4px. </em></p>
+
+<p>Verificámos que, na janela de preferências de privacidade do website <a href="https://associacaoincluir.pt/">Associação Incluir</a>, os textos descritivos das categorias de cookies apresentam um espaçamento entre linhas inferior ao recomendado.<br>Foi identificado um espaçamento de 19,6px para um tamanho de letra de 14px, valor abaixo do mínimo recomendado de 21px para garantir uma leitura confortável. (Figura 02)</p>
+<img src="https://github.com/user-attachments/assets/7ea022d5-609a-4ad4-a0d5-305080d9fadb" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 02 — O texto descritivo das categorias de cookies apresenta um espaçamento entre linhas de 19,6px para um tamanho de letra de 14px.</em></p>
+
+<p><strong>URL a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/">https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/</a></li>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Para a evidência apresentada na Figura 01, o espaçamento entre linhas deveria ser, no mínimo, de 21,6px, correspondente a 1,5 vezes o tamanho da letra identificado (14,4px).<br>E para a evidência apresentada na Figura 02, o espaçamento entre linhas deveria ser, no mínimo, de 21px, correspondente a 1,5 vezes o tamanho da letra identificado (14,4px).</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-3.3">Requisito 3.3 - As hiperligações de texto não devem ser diferenciadas apenas com base na cor</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/32" class="issue-link" target="_blank" rel="noopener noreferrer">issue #32</a> <strong>Falta de identificação complementar nas hiperligações</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 3.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>As hiperligações de texto não devem ser diferenciadas apenas com base na cor.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n33">ver requisito 3.3 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Foram identificadas diversas hiperligações que dependem exclusivamente da cor para se distinguirem do restante conteúdo. Em muitos casos, o sublinhado apenas é exibido ao passar o cursor (hover), o que dificulta a identificação imediata de elementos clicáveis, especialmente para utilizadores com limitações visuais ou dificuldades de perceção de cor.</p>
+<p>Os links devem apresentar uma indicação visual adicional além da cor, visível de forma persistente, sem exigir interação do utilizador. A ausência dessa distinção pode comprometer a compreensão e a navegação no conteúdo.</p>
+<img src="https://github.com/user-attachments/assets/7fbe48cc-f504-4234-8bf9-36bfe2e3952d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem dos links do rodapé sem qualquer indicação visual de hiperligação.</em></p>
+<img src="https://github.com/user-attachments/assets/9fde9639-0d16-4fd6-99bd-91fa1e19bc44" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem do link de "Políticas de Privacidade" sem identificação visual de hiperligação. Disponível em: <a href="https://associacaoincluir.pt/contactos/">https://associacaoincluir.pt/contactos/</a></em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/termos-e-condicoes/">https://associacaoincluir.pt/termos-e-condicoes/</a> - "Associação Incluir" no primeiro parágrafo</li>
+<li><a href="https://associacaoincluir.pt/documentos/">https://associacaoincluir.pt/documentos/</a> - Todos os documentos</li>
+<li><a href="https://associacaoincluir.pt/politica-de-privacidade/">https://associacaoincluir.pt/politica-de-privacidade/</a> - "Associação Incluir" no 1º parágrafo e "política de privacidade" no 5º parágrafo</li>
+<li><a href="https://associacaoincluir.pt/politica-de-cookies/">https://associacaoincluir.pt/politica-de-cookies/</a> - várias hiperligações</li>
+<li><a href="https://associacaoincluir.pt/acessibilidade/">https://associacaoincluir.pt/acessibilidade/</a> - várias hiperligações</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Garantir que todas as hiperligações possuem um indicador visual persistente, como sublinhado, independentemente de hover.</li>
+<li>Evitar depender exclusivamente da cor para diferenciar links do texto normal.</li>
+<li>Assegurar contraste adequado entre links e texto circundante, conforme os requisitos de acessibilidade.</li>
+<li>Validar que estilos de foco (focus) também são visíveis e consistentes para navegação por teclado.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/8" class="issue-link" target="_blank" rel="noopener noreferrer">issue #8</a> <strong>Páginas extensas sem índice de navegação interna entre secções</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os documentos longos têm um índice no topo com hiperligações internas para o mesmo.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n41">ver requisito 4.1 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/acessibilidade/">Acessibilidade</a>, o conteúdo se encontra organizado em várias secções e subsecções, sem que seja disponibilizado um índice de navegação no topo da página com hiperligações internas para os respetivos conteúdos. </p>
+<p>Esta situação dificulta a navegação e o acesso rápido às diferentes secções do documento. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/a2742459-c78a-4696-897e-bcb20a31d32f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01— A página de Acessibilidade não disponibiliza um índice de navegação para as diferentes secções do documento.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/acessibilidade/">https://associacaoincluir.pt/acessibilidade/</a></li>
+<li><a href="https://associacaoincluir.pt/termos-e-condicoes/">https://associacaoincluir.pt/termos-e-condicoes/</a></li>
+<li><a href="https://associacaoincluir.pt/politica-de-privacidade/">https://associacaoincluir.pt/politica-de-privacidade/</a></li>
+<li><a href="http://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/">http://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Disponibilizar um índice de navegação no início dos documentos mais extensos, contendo hiperligações internas para as principais secções e subsecções da página.<br>Esta abordagem facilita a navegação, permite o acesso direto aos conteúdos pretendidos e melhora a utilização de documentos com grande volume de informação.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-4.2">Requisito 4.2 - O layout do sítio Web é adaptável a plataformas móveis sem necessidade de efetuar varrimento horizontal</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/9" class="issue-link" target="_blank" rel="noopener noreferrer">issue #9</a> <strong>Inconsistências de adaptação responsiva e apresentação de conteúdos em dispositivos móveis</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>O layout do sítio Web é adaptável a plataformas móveis sem necessidade de efetuar varrimento horizontal.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n42">ver requisito 4.2 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/">Banco de Recursos para a Inclusão</a>, alguns conteúdos, como a tabela da secção "Orçamento", não se adaptam corretamente a larguras de ecrã reduzidas.</p>
+<p>Em dispositivos móveis, a tabela ultrapassa a área visível do ecrã, obrigando à realização de varrimento horizontal para aceder à totalidade da informação apresentada (Figura 01).</p>
+<img src="https://github.com/user-attachments/assets/ca6cf26c-439d-493a-aaf8-2351d46be4ea" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01 — A tabela da secção "Orçamento" ultrapassa a largura visível do ecrã em dispositivos móveis, obrigando à realização de varrimento horizontal.</em></p>
+
+<p>**URL a verificar:</p>
+<ul>
+<li><a href="https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/">https://associacaoincluir.pt/banco-de-recursos-para-a-inclusao/</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Garantir que os conteúdos e componentes da página se adaptam corretamente a diferentes larguras de ecrã, evitando a necessidade de varrimento horizontal.<br>Para tal, deverão ser adotadas soluções responsivas que permitam a visualização integral da informação em dispositivos móveis, sem comprometer a leitura e a navegação.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-5.2">Requisito 5.2 - Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos) (vertical e horizontal)</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/7" class="issue-link" target="_blank" rel="noopener noreferrer">issue #7</a> <strong>Elementos interativos com área clicável inferior à dimensão mínima recomendada de 44px CSS</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos), vertical e horizontal.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n52">ver requisito 5.2 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificámos que, no sítio Web da <a href="https://associacaoincluir.pt/">Associação Incluir</a>, existem vários elementos interativos com dimensões inferiores aos 44px × 44px recomendados.</p>
+<p>O botão de regresso ao topo da página apresenta uma dimensão de 38,8px × 38,8px, valor inferior aos 44px × 44px recomendados para elementos interativos. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/820710ed-92db-41a5-ae1f-078fc37575f3" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01 — O botão de regresso ao topo da página apresenta uma dimensão de 38,8px × 38,8px.</em></p>
+
+<p>Os ícones de redes sociais presentes no cabeçalho e os ícones de partilha apresentados após o vídeo possuem dimensões inferiores aos 44px × 44px recomendados para elementos interativos. Idenficiamos um tamanho de 16.33 x 17.6px. (Figura 02)</p>
+<img src="https://github.com/user-attachments/assets/600dc4db-d171-4732-a0b4-a3f1f0be893b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 02— O ícone da rede social Instagram apresenta uma dimensão aproximada de 16,3px × 17,6px.</em></p>
+
+<p>Foi identificada uma dimensão de 32,98px × 32,98px nos ícones de partilha, o que pode dificultar a sua utilização em dispositivos táteis. (Figura 03)</p>
+<img src="https://github.com/user-attachments/assets/8c56fa53-a79d-4d91-9acd-2537b932678d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 03— Os ícones de partilha apresentados após o vídeo apresentam uma dimensão de 32,98px × 32,98px.</em></p>
+
+<p>Os controlos de navegação do carrossel de destaques apresentados em dispositivos móveis possuem uma área de ativação inferior à recomendada.  Foi identificada uma largura de 20px no botão de navegação. (Figura 04).</p>
+<img src="https://github.com/user-attachments/assets/32f0db4a-a711-4b05-894e-720015a56e4c" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 04— O botão de navegação do carrossel apresenta uma largura aproximada de 20px.</em></p>
+
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/minuto-solidario-montepio-2015/">Minuto Solidário Montepio 2015</a>, a ligação utilizada para navegar para o artigo anterior apresenta uma altira de 19.2px. A altura identificada encontra-se abaixo dos 44px recomendados para elementos interativos, podendo dificultar a sua utilização em dispositivos táteis. (Figura 05)</p>
+<img src="https://github.com/user-attachments/assets/f97f42f5-ed40-408e-a966-0da62be69a77" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 05— A ligação para navegação entre artigos apresenta uma altura de 19.2px.</em></p>
+
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a></li>
+<li><a href="https://associacaoincluir.pt/minuto-solidario-montepio-2015/">https://associacaoincluir.pt/minuto-solidario-montepio-2015/</a> </li>
+<li><a href="https://associacaoincluir.pt/sou-consigo-e-faco/">https://associacaoincluir.pt/sou-consigo-e-faco/</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Garantir que todos os elementos interativos dispõem de uma área de ativação mínima de 44px × 44px, tanto na horizontal como na vertical.<br>Para tal, deverão ser revistas as dimensões dos botões, hiperligações, ícones e restantes controlos interativos, assegurando que podem ser facilmente selecionados em diferentes dispositivos e modos de interação, em particular através de toque.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-5.3">Requisito 5.3 - Há apenas um botão de ação principal por página e o mesmo encontra-se destacado</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/6" class="issue-link" target="_blank" rel="noopener noreferrer">issue #6</a> <strong>Hierarquia visual insuficiente entre ações principais e elementos informativos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Há apenas um botão de ação principal por página e o mesmo encontra-se destacado.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n53">ver requisito 5.3 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificamos que, no website <a href="https://associacaoincluir.pt/">Associação Incluir</a>, as opções "Aceitar todos" e "Continuar sem aceitar" apresentadas na janela inicial de consentimento de cookies possuem o mesmo destaque visual, dificultando a identificação da ação principal (Figura 01).</p>
+<img src="https://github.com/user-attachments/assets/f8cccb98-db2e-4566-8382-708dd6057d9f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01 — As ações da janela de consentimento de cookies apresentam o mesmo destaque visual.</em></p> <p>
+
+</p><p>Verificámos igualmente que, ao selecionar a opção "Definir opções de privacidade individuais", as ações "Aceitar todos", "Continuar sem aceitar" e "Guardar opções personalizadas" mantêm o mesmo destaque visual e nível hierárquico (Figura 02).</p>
+<img src="https://github.com/user-attachments/assets/b962b147-74da-446c-a617-6998fc32e0ba" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 02 — As ações disponíveis nas preferências de privacidade individuais apresentam o mesmo destaque visual.</em></p><p></p>
+<p>Verificámos que, no website <a href="https://associacaoincluir.pt/">Associação Incluir</a>, os botões utilizados para ações principais, como o botão "Submeter" presente no formulário de contactos, apresentam o mesmo estilo visual de outros botões utilizados para navegação e acesso a conteúdos, como os botões "A Nossa História" e "Os Nossos Serviços" disponíveis na página inicial. (Figura 03)</p>
+<p>Esta abordagem dificulta a identificação das ações principais disponíveis nas diferentes páginas do website.</p>
+<img src="https://github.com/user-attachments/assets/0dfd0983-d4cb-459a-a846-dbc6d225df00" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 03 — O botão "Submeter" apresenta o mesmo estilo visual de outros botões utilizados para navegação no website.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a></li>
+<li><a href="https://associacaoincluir.pt/contactos/">https://associacaoincluir.pt/contactos/</a></li>
+<li><a href="https://associacaoincluir.pt/minuto-solidario-montepio-2015/">https://associacaoincluir.pt/minuto-solidario-montepio-2015/</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Garantir que cada página apresenta uma ação principal claramente identificável e visualmente diferenciada das restantes ações disponíveis.<br>Para tal, os botões associados a ações principais deverão utilizar um estilo visual distinto, permitindo estabelecer uma hierarquia clara entre ações primárias, secundárias e elementos de navegação, facilitando a sua identificação pelos utilizadores.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-5.4">Requisito 5.4 - Elementos gráficos interativos têm de aparentar ser clicáveis</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/5" class="issue-link" target="_blank" rel="noopener noreferrer">issue #5</a> <strong>Elementos interativos com contraste insuficiente relativamente ao fundo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.4</span></div>
+                <div class="issue-content"><blockquote>
+<p>Elementos gráficos interativos têm de aparentar ser clicáveis.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n54">ver requisito 5.4 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/minuto-solidario-montepio-2015/#main">Minuto Solidário Montepio 2015</a>, os ícones das redes sociais apresentam um contraste insuficiente face ao fundo onde se encontram inseridos. Foi identificado um rácio de contraste de 1,81:1, valor inferior ao mínimo recomendado, dificultando a sua perceção por utilizadores com baixa visão ou dificuldades de perceção visual. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/82260258-8aad-4e8e-bfca-9e98ae6e6774" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01— Os ícones das redes sociais apresentam um rácio de contraste de aproximadamente 1,81:1.</em></p>
+
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/sobre-nos/">Sobre Nós</a>, quando o menu principal é apresentado em versão móvel, o botão de pesquisa identificado pelo ícone de lupa apresenta um contraste insuficiente entre o ícone e o fundo do botão. </p>
+<p>Foi identificado um rácio de contraste de 1,18:1, valor inferior ao mínimo recomendado para componentes de interface, dificultando a sua identificação e utilização por utilizadores com baixa visão ou dificuldades de perceção visual. (Figura 02)</p>
+<img src="https://github.com/user-attachments/assets/c69b8c34-4626-4f1f-85c8-293d3e34c709" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 02 — O ícone de pesquisa apresentado no menu principal em versão móvel possui um rácio de contraste de 1,18:1 face ao fundo do botão.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/minuto-solidario-montepio-2015/#main">https://associacaoincluir.pt/minuto-solidario-montepio-2015/#main</a></li>
+<li><a href="https://associacaoincluir.pt/sou-consigo-e-faco/">https://associacaoincluir.pt/sou-consigo-e-faco/</a></li>
+<li><a href="https://associacaoincluir.pt/sobre-nos/">https://associacaoincluir.pt/sobre-nos/</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Garantir que os elementos gráficos interativos e componentes de interface apresentam um contraste suficiente face ao fundo onde se encontram inseridos, permitindo a sua identificação clara por todos os utilizadores. </p>
+<p>Para tal, deverão ser revistas as combinações de cores utilizadas nos ícones e controlos interativos, assegurando uma diferenciação visual adequada entre os elementos e o respetivo fundo.</p>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/3" class="issue-link" target="_blank" rel="noopener noreferrer">issue #3</a> <strong>Elementos interativos sem diferenciação visual clara ou comportamento consistente de interação</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.4</span></div>
+                <div class="issue-content"><blockquote>
+<p>Elementos gráficos interativos têm de aparentar ser clicáveis.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n54">ver requisito 5.4 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/minuto-solidario-montepio-2015/">Minuto Solidário Montepio 2015</a>, a data de publicação apresentada nos artigos pode ser selecionada como hiperligação, apesar de se apresentar visualmente como texto informativo. </p>
+<p>A ausência de elementos visuais que indiquem a sua interatividade dificulta a identificação desta funcionalidade pelos utilizadores. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/4128d643-9b48-4bd0-a780-0f81c0754c94" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01— A data de publicação do artigo apresenta-se como texto estático apesar de ser uma hiperligação.</em></p>
+
+<p>Verificámos que, no website <a href="https://associacaoincluir.pt/">Associação Incluir</a>, diversas hiperligações são apresentadas visualmente como texto estático, sem elementos que permitam identificar claramente a sua interatividade. </p>
+<p>As hiperligações para as redes sociais "Facebook", "Instagram" e "YouTube", presentes no rodapé, são apresentadas visualmente como texto estático, não existindo elementos visuais que permitam identificar claramente a sua interatividade. Adicionalmente, estas hiperligações não apresentam alterações visuais significativas quando percorridas com o cursor (Figura 02).</p>
+<img src="https://github.com/user-attachments/assets/12fbd8fe-d61d-40fc-9757-71c7d1ec8a61" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 02— As hiperligações para as redes sociais no rodapé apresentam-se visualmente como texto estático.</em></p>
+
+<p>Verificámos igualmente que as opções "Termos e Condições", "Política de Privacidade", "Livro de Reclamações", "Livro de Elogios", "Política de Cookies" e "Acessibilidade" apresentam o mesmo comportamento, surgindo visualmente como texto comum e sem indicadores visuais que evidenciem a possibilidade de interação<br>(Figura 03).</p>
+<img src="https://github.com/user-attachments/assets/b0bd5566-82da-47ea-ae19-d311d48f1185" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p></p> <p><em>Figura 03 — As hiperligações para conteúdos institucionais no rodapé apresentam-se visualmente como texto estático.</em></p>
+
+<p>Verificámos que, na página <a href="https://associacaoincluir.pt/documentos/">Documentos</a>, as ligações para descarregamento dos documentos disponibilizados, incluindo os Estatutos, os Relatórios de Contas e o Código de Ética, são apresentadas visualmente como texto comum. A ausência de elementos visuais que permitam identificar claramente a sua interatividade dificulta a perceção de que estes conteúdos podem ser selecionados para consulta ou descarregamento. (Figura 04)</p>
+<img src="https://github.com/user-attachments/assets/70269247-65af-4e4e-8a6f-3ce8a75a08b4" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 04— As ligações para descarregamento de documentos apresentam-se visualmente como texto estático.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/minuto-solidario-montepio-2015/">https://associacaoincluir.pt/minuto-solidario-montepio-2015/</a></li>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a></li>
+<li><a href="https://associacaoincluir.pt/documentos/">https://associacaoincluir.pt/documentos/</a></li>
+<li><a href="https://associacaoincluir.pt/politica-de-privacidade/">https://associacaoincluir.pt/politica-de-privacidade/</a></li>
+<li><a href="https://associacaoincluir.pt/politica-de-cookies/">https://associacaoincluir.pt/politica-de-cookies/</a></li>
+<li><a href="https://associacaoincluir.pt/acessibilidade/">https://associacaoincluir.pt/acessibilidade/</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Garantir que as hiperligações e restantes elementos interativos apresentam indicadores visuais que permitam identificar de forma clara a sua interatividade.<br>Para tal, deverão ser adotadas soluções visuais consistentes, como alterações de cor, sublinhado, ícones ou outros elementos distintivos, assegurando que estes componentes se diferenciam do texto estático e são facilmente reconhecidos como acionáveis pelos utilizadores.</p>
+</div>
+              </li></ul>
+</div>
+
+      </div>
+      <div class="checklist-section">
+        <h3 id="checklist-transacao">Checklist Transação</h3>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        
+      <p><strong>Nível de conformidade:</strong></p>
+        <ul>
+          <li><strong>Checklist Transação</strong>: 50.0% (4/8)
+            <ul>
+              <li>Requisitos avaliados: 13 (5 N/A excluídos, 8 aplicáveis)</li>
+              <li>Requisitos OK: 4</li>
+              <li>Requisitos NOK: 4</li>
+              <li>Requisitos N/A: 5</li>
+            </ul>
+          </li>
+        </ul>
+    
+        <h4 class="requirement-title" id="req-transacao-r-1.2">Requisito 1.2 - Os formulários com mais de 2 ecrãs de altura devem ser distribuídos por várias páginas</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/13" class="issue-link" target="_blank" rel="noopener noreferrer">issue #13</a> <strong>Não foram encontrados formulários com mais de 2 ecrãs no website</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os formulários com mais de 2 ecrãs de altura devem ser distribuídos por várias páginas.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n12">ver requisito 1.2 na lista Transação</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>Não foram encontrados formulários com mais de dois ecrãs no site <a href="https://associacaoincluir.pt/">Associação para a Inclusão do Cidadão com Necessidades Especiais INCLUIR</a>. Assim, este critério é considerado "Não aplicável (N/A)".</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-1.3">Requisito 1.3 - Os formulários com mais de uma página têm a sequência de passos ilustrada</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/14" class="issue-link" target="_blank" rel="noopener noreferrer">issue #14</a> <strong>Não foram encontrados formulários com mais de uma página</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os formulários com mais de uma página têm a sequência de passos ilustrada.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n13">ver requisito 1.3 na lista Transação</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>Não foram encontrados formulários com mais de uma página dentro no site <a href="https://associacaoincluir.pt/">Associação para a Inclusão do Cidadão com Necessidades Especiais INCLUIR</a>. Assim, este requisito fica avaliado como "Não Aplicável" (N/A).</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-2.1">Requisito 2.1 - O tamanho dos campos deve refletir o tamanho previsível dos dados</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/47" class="issue-link" target="_blank" rel="noopener noreferrer">issue #47</a> <strong>O tamanho dos campos não reflete o tamanho previsível dos dados</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>O tamanho dos campos deve refletir o tamanho previsível dos dados.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n21">ver requisito 2.1 na lista Transação</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>O campo de pesquisa na página <a href="https://associacaoincluir.pt/politica-de-cookies/">Política de Cookies</a> é demasiado estreito, o que compromete a sua utilização. Este campo, colocado logo abaixo do cabeçalho de nível 2 “Que cookies são utilizados neste site?”, serve para filtrar os resultados apresentados na tabela de cookies. No entanto, quando introduzimos termos longos que constam na própria tabela de cookies — como “real_cookie_banner-consent-queue” ou “<a href="https://associacaoincluir.pt%E2%80%9D">https://associacaoincluir.pt”</a> — estes não ficam totalmente visíveis dentro do campo, devido à sua largura reduzida.</p>
+<img src="https://github.com/user-attachments/assets/0b621db8-1910-49bc-9a2a-367cc9fbbdb8" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura - Teste do campo de pesquisa, presente na página <a href="https://associacaoincluir.pt/politica-de-cookies/">Política de Cookies</a>, através da introdução do termo de pesquisa "real_cookie_banner-consent-queue*".</em></p>
+<p><strong>URL a verificar:</strong><br>Página <a href="https://associacaoincluir.pt/politica-de-cookies/">Política de Cookies</a></p>
+<p><strong>Recomendações:</strong><br>Recomendamos reformular este campo para ser maior.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-2.2">Requisito 2.2 - É usada revelação progressiva em vez de campos inativos</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/50" class="issue-link" target="_blank" rel="noopener noreferrer">issue #50</a> <strong>Não foram identificados formulários que utilizem revelação progressiva</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span></div>
+                <div class="issue-content"><blockquote>
+<p>É usada revelação progressiva em vez de campos inativos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n22">ver requisito 2.2 na lista Transação</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Na <a href="https://associacaoincluir.pt/">Associação para a Inclusão do Cidadão com Necessidades Especiais - INCLUIR</a>, não foram encontrados campos cujo conteúdo dependente seja ocultado ou revelado automaticamente com base na ativação de um campo chave. Assim, o requisito 2.2. da Checklist de Transação é avaliado como “Não aplicável”.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-2.3">Requisito 2.3 - As legendas dos campos são breves e claras</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/53" class="issue-link" target="_blank" rel="noopener noreferrer">issue #53</a> <strong>O texto placeholder está a substituir a label</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.3</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span></div>
+                <div class="issue-content"><blockquote>
+<p>As legendas dos campos são breves e claras.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n23">ver requisito 2.3 na lista Transação</a></p>
+</blockquote>
+<p><strong>Notas gerais:</strong><br>Não deve ser usado o texto placeholder em substituição de uma label, porque ao escrever no campo esse texto irá desaparecer e torna a tarefa difícil para pessoas com problemas de memória ou na revisão das respostas do formulário. Para além disso, alguns leitores de ecrã podem não estar preparados para ler esse texto.</p>
+<p>Manter a label visível no ecrã também aumenta a área de clique, o que beneficia pessoas com dificuldades motoras ao selecionar um campo específico.</p>
+<p><strong>Evidências:</strong><br>No campo de pesquisa da página <a href="https://associacaoincluir.pt/politica-de-cookies/">Política de Cookies</a>, o texto placeholder está a substituir a etiqueta do campo.</p>
+<img src="https://github.com/user-attachments/assets/d62c58db-59c3-4592-9ec9-36e61201e52e" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura - Análise do campo de pesquisa na página <a href="https://associacaoincluir.pt/politica-de-cookies/">Política de Cookies</a> através do Google Inspector.</em></p>
+<p><strong>URL a verificar:</strong><br>Página <a href="https://associacaoincluir.pt/politica-de-cookies/">Política de Cookies</a></p>
+<p><strong>Recomendações:</strong><br>Recomendamos a revisão dos formulários para garantir que:</p>
+<ul>
+<li>São atribuídas legendas aos campos utilizando o elemento <label>;</label></li>
+<li>O texto placeholder, quando utilizado, auxilia no preenchimento do campo em vez de substituir a legenda;</li>
+<li>Caso seja usada a legenda dentro do campo, esta deve estar identificada como <label> e não deve desaparecer quando o campo está em foco, como acontece no exemplo do <a href="https://m2.material.io/components/text-fields">Campos de formulário - Material Design</a> e/ou <a href="https://material-components.github.io/material-components-web-catalog/#/component/select">Caixa de seleção - Material Design</a></label></li>
+</ul>
+<p>Para mais informações, recomendamos consultar a página sobre <a href="https://webaim.org/techniques/forms/controls#select">boas práticas nos formulários da WebAIM</a>.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-2.4">Requisito 2.4 - Campos obrigatórios devem ser claramente indicados como tal</h4>
+<div class="requirement-content">
+<p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span> (no entanto contém 1 melhoria que se recomenda efetuar)</p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/62" class="issue-link" target="_blank" rel="noopener noreferrer">issue #62</a> <strong>Não há indicação programática de que o campo é obrigatório</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.4</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span></div>
+                <div class="issue-content"><blockquote>
+<p>Campos obrigatórios devem ser claramente indicados como tal.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n24">ver requisito 2.4 na lista Transação</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>O campo “Eu concordo com o armazenamento dos meus dados de acordo com as Políticas de Privacidade.”, presente no formulário da página <a href="https://associacaoincluir.pt/contactos/">Contactos</a>, inclui um asterisco <code>*</code>. A legenda correspondente — “* Indica um campo obrigatório” — está visível no início do formulário e é anunciada tanto na interface gráfica como pelos leitores de ecrã.</p>
+<p>No entanto, o campo não possui qualquer indicação programática de obrigatoriedade, ou seja, não está marcado como obrigatório no código, o que impede as tecnologias de apoio de o identificarem corretamente como tal.</p>
+<img src="https://github.com/user-attachments/assets/e18559ac-ba9c-423b-8e58-31d21aaae9f7" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura - Análise do campo "Eu concordo com o armazenamento dos meus dados de acordo com as <a href="https://associacaoincluir.pt/politica-de-privacidade/">Políticas de Privacidade</a>.", presente no formulário da página <a href="https://associacaoincluir.pt/contactos/">Contactos</a>, através do Google Inspector.</em></p>
+<p><strong>URL a verificar:</strong><br><a href="https://associacaoincluir.pt/contactos/">Página Contactos</a> </p>
+<p><strong>Recomendações:</strong><br>Recomendamos adicionar o atributo <code>required</code> a todos os campos obrigatórios, para que as tecnologias de apoio os consigam identificar corretamente como campos de preenchimento obrigatório.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-3.1">Requisito 3.1 - Em ações longas, o sistema deve indicar o que está a acontecer</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/4" class="issue-link" target="_blank" rel="noopener noreferrer">issue #4</a> <strong>Inexistência de ações longas</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 3.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Em ações longas, o sistema deve indicar o que está a acontecer.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n31">ver requisito 3.1 na lista Transação</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>Na análise realizada, não foram identificadas ações longas que exijam comunicação de estado ao utilizador.<br>Desta forma, considera-se que o critério é não aplicável.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-3.2">Requisito 3.2 - Deve ser confirmado o sucesso da transação/envio de informação</h4>
+<div class="requirement-content">
+<p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span> (no entanto contém 1 melhoria que se recomenda efetuar)</p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/10" class="issue-link" target="_blank" rel="noopener noreferrer">issue #10</a> <strong>Feedback após submissão não anunciado de forma imediata</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 3.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Deve ser confirmado o sucesso da transação/envio de informação.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n32">ver requisito 3.2 na lista Transação</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Após submissão do formulário, a mensagem de confirmação é disponibilizada na página, sendo posteriormente lida pelo leitor de ecrã.</p>
+<p>Contudo, após a submissão, o foco é reposicionado no início da página, levando o leitor de ecrã a anunciar novamente conteúdos de navegação, menus e outros elementos da interface antes de chegar à mensagem de confirmação.<br>A mensagem de sucesso apenas é anunciada após leitura de múltiplos conteúdos intermédios, não sendo apresentada de forma imediata nem contextual ao utilizador.</p>
+<p>Como consequência, os utilizadores de tecnologias de apoio podem não perceber imediatamente que a submissão foi concluída com sucesso, nem compreender rapidamente o estado da interface após a ação executada.</p>
+<img src="https://github.com/user-attachments/assets/06e9309b-5cb7-4ecf-85ba-be7d3969a3cd" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Mensagem de confirmação apenas anunciada após leitura integral da página</em></p>
+<p><strong>URL a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/contactos/">https://associacaoincluir.pt/contactos/</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Garantir que a mensagem de confirmação é anunciada imediatamente após a submissão;</li>
+<li>Mover programaticamente o foco para a mensagem de feedback, quando apropriado;</li>
+<li>Utilizar <code>role="status"</code> ou <code>aria-live="polite"</code> para anunciar dinamicamente o resultado da ação;</li>
+<li>Garantir que o utilizador percebe imediatamente o estado da transação sem necessidade de reler toda a página;</li>
+<li>Validar comportamento com leitores de ecrã.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-4.2">Requisito 4.2 - As ações destrutivas nunca devem ser permanentes; deve ser sempre possível desfazer a operação</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/68" class="issue-link" target="_blank" rel="noopener noreferrer">issue #68</a> <strong>Não existem formulários que permitam ações destrutivas pelo utilizador</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>As ações destrutivas nunca devem ser permanentes, deve ser sempre possível desfazer a operação.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n42">ver requisito 4.2 na lista Transação</a></p>
+</blockquote>
+<p><strong>Evidências</strong><br>Não identificámos formulários que permitem o utilizador fazer ações destrutivas e por esse motivo, consideramos esse critério como "Não aplicável".</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-4.3">Requisito 4.3 - As mensagens de erro são claramente identificadas junto aos campos de origem</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/66" class="issue-link" target="_blank" rel="noopener noreferrer">issue #66</a> <strong>Existem mensagens de erro ocultas das tecnologias de apoio</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>As mensagens de erro são claramente identificadas junto aos campos de origem.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n43">ver requisito 4.3 na lista Transação</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>Os campos 'Nome', 'Email' e 'assunto' do formulário de <a href="https://associacaoincluir.pt/contactos/">Contactos</a> apresentam mensagens de erro na sua vizinhança, mas as mesmas estão ocultas das tecnologias de apoio através do atributo aria-hidden = “true”, o que impede que os utilizadores destas tecnologias consigam percecioná-las através da navegação por elementos:</p>
+<img src="https://github.com/user-attachments/assets/96e2d200-8efc-43a3-bd93-2f923d736706" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+<p><em>Mensagem de erro do campo nome oculta para as tecnologias de apoio</em></p>
+<p>Para além disso, a mensagem no topo com a lista sumária dos erros, para além de estar visível apenas para as tecnologias de apoio, não transmite informação acerca de quais dos campos foram incorretamente preenchidos, e não direciona o foco para cada um deles.</p>
+<img src="https://github.com/user-attachments/assets/87c5d522-1194-409b-a486-594f1e2b4d01" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+<p><em>Mensagem no topo oculta visualmente e não ajudando no correto preenchimento do formulário</em></p>
+<p>Como observado na figura, a mensagem “Por favor preencha este campo.” Não indica de que campo se trata, nem permite direcionar o foco para o campo.</p>
+<p>Verificámos ainda que foi adicionado o atributo aria-describedby a cada campo (associação programática da mensagem de erro ao campo), o que permite que cada mensagem de erro seja anunciada ao navegar por teclado (tab e shift+tab), mas o id colocado em cada valor de aria-describedby é o da respetiva mensagem de erro presente no topo e não o da mensagem na vizinhança do campo.<br>Ao serem utilizados os ids das mensagens na vizinhança dos campos nos valores dos atributos aria-describedby  desses campos mantém-se a coerência de anúncio de mensagens de erro para todos os utilizadores.<br>Para além disso, a existência de mensagens no topo do formulário não é obrigatório caso o formulário tenha um número reduzido de campos, mas caso exista deve ser bem construída.</p>
+<p><strong>URLs a verificar:</strong><br><a href="https://associacaoincluir.pt/contactos/">Contactos</a></p>
+<p><strong>Recomendações:</strong><br>Recomendamos que sejam apresentadas mensagens de erro junto aos campos de todos os formulários, visíveis para todos os agentes, para assim fornecerem apoio na correção dos mesmos e consequente submissão correta dos formulários. No caso do formulário aqui referido basta que seja removido o atributo aria-hidden de cada mensagem de erro.<br>Adicionalmente, pode existir uma lista dos erros no topo de cada formulário que consolida os vários erros existentes, em que cada mensagem deve, não só remeter para o respetivo campo (por exemplo, através da colocação da mensagem num link cujo href contenha o id do respetivo campo), mas também deve conter o descritivo do campo, de modo a que o campo a que a mensagem se refere seja percecionado sem ser necessário remeter-lhe o foco a partir da mensagem.<br>Um exemplo de um item de mensagem de topo seria:</p>
+<pre><code>&lt;li&gt;&lt;a href="#id_do_campo_nome"&gt;'Nome': por favor preencha este campo&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+<p>Recomendamos ainda que os ids presentes nos atributos aria-describedby de cada campo sejam os das mensagens na vizinhança dos campos.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-transacao-r-4.4">Requisito 4.4 - As mensagens de erro devem mostrar os passos concretos para a resolução dos mesmos</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/69" class="issue-link" target="_blank" rel="noopener noreferrer">issue #69</a> <strong>Existem mensagens de erro que não ajudam na resolução do problema</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.4</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span></div>
+                <div class="issue-content"><blockquote>
+<p>As mensagens de erro devem mostrar os passos concretos para a resolução dos mesmos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-transacao#n44">ver requisito 4.4 na lista Transação</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>A mensagem de erro “Por favor digite um endereço de email.” presente no formulário de <a href="https://associacaoincluir.pt/contactos/">Contactos</a> não ajuda no preenchimento do campo:</p>
+<img src="https://github.com/user-attachments/assets/e33d5d8e-fad9-4849-87a3-5349d765a979" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+<p><em>Mensagem de erro que não guia o utilizador na resolução do erro</em><br>Como observado na figura, a mensagem “Por favor digite um endereço de email.” que é apresentada quando o campo foi preenchido com um formato incorreto não indica qual o formato a ser inserido, não ajudando a preencher o campo.</p>
+<p><strong>URLs a verificar:</strong><br><a href="https://associacaoincluir.pt/contactos/">Contactos</a></p>
+<p><strong>Recomendações:</strong><br>Recomendamos rever todos os formulários do website para garantir que as mensagens de erro apresentadas expliquem para o utilizador como preencher os campos corretamente.</p>
+</div>
+              </li></ul>
+</div>
+
+      </div>
+      <div class="checklist-section">
+        <h3 id="outras-violacoes">Outras violações</h3>
+        <div class="requirement-content">
+<p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span> (no entanto contém 3 melhorias que se recomenda efetuar)</p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/61" class="issue-link" target="_blank" rel="noopener noreferrer">issue #61</a> <strong>Outras violações - Opção indisponível e não funcional no menu da versão mobile</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span></div>
+                <div class="issue-content"><p><strong>Evidências:</strong></p>
+<p>Verificou-se a existência de um item no menu mobile que se encontra indisponível e sem funcionalidade efetiva (Figura 1).</p>
+<img src="https://github.com/user-attachments/assets/fad019e2-7556-4fc2-8524-83e47d5513b7" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 – Opção não funcional no menu mobile</em> </p>
+<p>Este elemento não recebe foco através de navegação por teclado nem está acessível por interação tátil. A única informação associada surge sob a forma de uma tooltip em inglês com a mensagem “WooCommerce needed”, o que pode gerar confusão para os utilizadores, especialmente por não existir contexto adicional nem ação associada. A presença de um item não interativo e sem conteúdo útil contribui para ruído informacional, prejudicando a clareza e a usabilidade do menu de navegação. </p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a> <em>(Versão para dispositivos móveis)</em></li>
+</ul>
+<p><strong>Recomendações:</strong><br>Recomenda-se assegurar que todos os itens presentes no menu mobile são funcionais, acessíveis e relevantes para o utilizador. Em particular:</p>
+<ul>
+<li>Remover o item caso não exista funcionalidade ou conteúdo útil associado, evitando ruído e confusão.</li>
+<li>Caso o item seja necessário, garantir que está devidamente ativo, com comportamento consistente e acessível em dispositivos móveis.</li>
+<li>Eliminar ou traduzir mensagens técnicas (como “WooCommerce needed”), substituindo-as por conteúdos claros e compreensíveis para utilizadores finais.</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/60" class="issue-link" target="_blank" rel="noopener noreferrer">issue #60</a> <strong>Outras violações - Botão “Newsletter” não funciona na versão para dispositivos móveis</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span></div>
+                <div class="issue-content"><p><strong>Evidências:</strong><br>Na versão mobile do <a href="https://associacaoincluir.pt">website</a>, o menu apresenta a opção “Newsletter”, porém esta funcionalidade encontra-se indisponível. (Figura 1)</p>
+<img src="https://github.com/user-attachments/assets/e9d2ba02-efaa-42a8-b0b6-7d25ee94c4b5" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 – Item não funcional no menu mobile, associado à componente da Newsletter</em></p>
+<p>Embora o botão receba foco visível quando navegado por teclado e seja clicável através de interação tátil (ou rato em simulação), a ação não produz qualquer resultado. Não ocorre redirecionamento, nem é apresentada qualquer mensagem de erro ou feedback ao utilizador após o clique, comprometendo a perceção de funcionalidade do elemento. </p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/#header-newsletter-signup">https://associacaoincluir.pt/#header-newsletter-signup</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Verificar a implementação do link associado ao botão “Newsletter” na versão mobile, assegurando que o atributo href ou o evento de clique (onclick) está corretamente configurado.</li>
+<li>Confirmar se não existem scripts JavaScript a impedir o comportamento esperado no contexto mobile e verificar erros de execução.</li>
+<li>Garantir consistência funcional entre versões desktop e mobile, assegurando que o botão executa a mesma ação em diferentes dispositivos. (Atualmente a opção não está disponível na versão desktop)</li>
+<li>Incluir feedback ao utilizador por exemplo, mensagens de erro, avisos de redirecionamento ou abertura de formulário, para evitar ambiguidades em caso de falha.</li>
+<li>Testar a funcionalidade com tecnologias de apoio, assegurando conformidade com boas práticas de acessibilidade e navegação por teclado.</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_074/issues/59" class="issue-link" target="_blank" rel="noopener noreferrer">issue #59</a> <strong>Outras violações - Há botões em inglês na versão portuguesa do website</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span></div>
+                <div class="issue-content"><p><strong>Evidências:</strong><br>Verificámos uma inconsistência linguística, uma vez que o site está em português mas há botões e conteúdos com o textos alternativos em inglês.<br> <br>O <a href="https://associacaoincluir.pt/">website</a> apresenta problemas de inconsistência linguística em elementos interativos como o link “Skip to content”, que indica para utilizador navegar para conteúdo principal, dificultando a compreensão para utilizadores do idioma português, língua em que o site é implementado. (Figura 1) </p>
+<img src="https://github.com/user-attachments/assets/7cdb3568-fb00-4b64-90d0-5a227d8ce039" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Link para “Saltar para o conteúdo principal da página” em inglês impacta na experiência com leitor de ecrã NVDA</em></p>
+<p>Verifica‑se a existência de conteúdos textuais em inglês. Esta inconsistência linguística acontece em diferentes botões do website, como o “Voltar ao topo” com title="Go to top" (Figura 2)</p>
+<img src="https://github.com/user-attachments/assets/1114c104-f319-4f37-b081-658d516188f4" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 2 - Texto alternativo do botão “voltar ao topo”, em inglês</em></p>
+<p>A mistura de idiomas pode causar confusão aos utilizadores, afetar a compreensão da informação e constituir uma barreira à acessibilidade, especialmente para pessoas com dificuldades cognitivas, utilizadores de leitores de ecrã ou cidadãos com menor proficiência em inglês.&nbsp;</p>
+<p><strong>URLs a verificar</strong></p>
+<ul>
+<li><a href="https://associacaoincluir.pt/">https://associacaoincluir.pt/</a> - <em>(Botão “Saltar para o conteúdo principal” e elementos interativos no menu mobile Ex: “Toggle”)</em></li>
+<li><a href="https://associacaoincluir.pt/acessibilidade/">https://associacaoincluir.pt/acessibilidade/</a> - <em>(Botão “Voltar ao topo” em todo website)</em></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Recomenda‑se a uniformização do idioma de todos os conteúdos apresentados na página, garantindo que o texto se encontra integralmente em português quando o idioma principal definido é PT. Deverá ser assegurado que quaisquer termos, componentes ou conteúdos sejam devidamente traduzidos e revistos, promovendo a coerência linguística, a clareza da informação.</p>
+</div>
+              </li></ul>
+</div>
+
+      </div></section>
+
+    <section id="etiquetas" class="mb-5 report-section">
+      <h2>Significado das etiquetas utilizadas</h2>
+      <ul>
+        <li><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span> - status OK</li>
+        <li><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span> - status OK, mas pode melhorar</li>
+        <li><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span> - status Not OK</li>
+        <li><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span> - status Não Aplicável</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk10 web</span> - checklist 10 Aspetos críticos de acessibilidade funcional</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span> - checklist Conteúdo</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span> - checklist Transação</li>
+        <li><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span> - permite construir o subcapítulo "Outras violações", o qual integra o capítulo "Avaliações manuais"</li>
+        <li><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span> - permite construir o capítulo "Declaração de acessibilidade e usabilidade"</li>
+        <li><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span> - permite construir o capítulo "Avaliação automática"</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>testes usabilidade</span> - permite construir o capítulo "Testes de usabilidade"</li>
+      </ul>
+    </section>
+
+  </div>
+  <footer class="report-footer">
+    <p>© 2026 ARTE - Agência para a Reforma Tecnológica do Estado, I.P. Todos os Direitos Reservados.</p>
+    <p><em lang="en">GitReports v1.0</em> - relatório gerado automaticamente a partir dos <em lang="en">issues</em> do GitHub</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
